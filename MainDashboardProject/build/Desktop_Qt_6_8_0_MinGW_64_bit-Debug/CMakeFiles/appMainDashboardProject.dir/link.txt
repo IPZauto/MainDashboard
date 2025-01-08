@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\appMainDashboardProject.dir/objects.a
-D:\QT\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\appMainDashboardProject.dir/objects.a @CMakeFiles\appMainDashboardProject.dir\objects1.rsp
-D:\QT\Tools\mingw1310_64\bin\g++.exe -DQT_QML_DEBUG -g -mwindows -Wl,--whole-archive CMakeFiles\appMainDashboardProject.dir/objects.a -Wl,--no-whole-archive -o appMainDashboardProject.exe -Wl,--out-implib,libappMainDashboardProject.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\appMainDashboardProject.dir\linkLibs.rsp

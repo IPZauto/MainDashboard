@@ -1,5 +1,0 @@
-module MainDashboardProject
-typeinfo appMainDashboardProject.qmltypes
-prefer :/qt/qml/MainDashboardProject/
-Main 1.0 Main.qml
-
