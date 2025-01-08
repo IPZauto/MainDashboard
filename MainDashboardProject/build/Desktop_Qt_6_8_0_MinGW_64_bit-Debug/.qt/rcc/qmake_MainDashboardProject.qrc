@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/MainDashboardProject">
-    <file alias="qmldir">D:/Studia/IPZ/MainDashboard/MainDashboardProject/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MainDashboardProject/qmldir</file>
-  </qresource>
-</RCC>
-
