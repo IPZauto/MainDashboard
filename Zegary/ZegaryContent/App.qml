@@ -5,15 +5,31 @@ import QtQuick
 import Zegary
 
 Window {
-    width: mainScreen.width
-    height: mainScreen.height
+    width: 1920
+    height: 550
 
     visible: true
     title: "Zegary"
+    color: "#151414"
 
-    Screen01 {
-        id: mainScreen
+    property int speed: 145
+    property int rpm: 96
+
+    ZegarLeft {
+        x: 0
+        y: 0
+        rotate: speed
     }
 
+    ZegarRight {
+        x: 1920 - 550
+        y: 0
+        rotate: rpm
+    }
+
+    MidScreen {
+        x: 560
+        y: 0
+    }
 }
 
