@@ -16,24 +16,7 @@ Rectangle {
     width: 550
     height: 550
     property int rotate: 225
-    gradient: Gradient {
-        GradientStop {
-            position: 0
-            color: "#000000"
-        }
-
-        GradientStop {
-            position: 0.5
-            color: "#595959"
-        }
-
-        GradientStop {
-            position: 1
-            color: "#000000"
-        }
-
-        orientation: Gradient.Vertical
-    }
+    color: "#151414"
 
     states: [
         State {

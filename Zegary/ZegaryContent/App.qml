@@ -20,16 +20,16 @@ Window {
         y: 0
         rotate: speed
     }
-
+    MidScreen {
+        x: 560
+        y: 0
+    }
     ZegarRight {
         x: 1920 - 550
         y: 0
         rotate: rpm
     }
 
-    MidScreen {
-        x: 560
-        y: 0
-    }
+
 }
 
