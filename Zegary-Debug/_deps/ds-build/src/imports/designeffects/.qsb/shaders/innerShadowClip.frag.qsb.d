@@ -1,0 +1,2 @@
+A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-build/src/imports/designeffects/.qsb/shaders/innerShadowClip.frag.qsb: \
+  A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/designeffects/shaders/innerShadowClip.frag

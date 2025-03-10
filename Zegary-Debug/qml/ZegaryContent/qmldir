@@ -1,0 +1,12 @@
+module ZegaryContent
+linktarget ZegaryContentplugin
+optional plugin ZegaryContentplugin
+classname ZegaryContentPlugin
+typeinfo ZegaryContent.qmltypes
+prefer :/qt/qml/ZegaryContent/
+MiddleScreen 1.0 MiddleScreen.qml
+MidScreen 1.0 MidScreen.ui.qml
+App 1.0 App.qml
+ZegarRight 1.0 ZegarRight.ui.qml
+ZegarLeft 1.0 ZegarLeft.ui.qml
+

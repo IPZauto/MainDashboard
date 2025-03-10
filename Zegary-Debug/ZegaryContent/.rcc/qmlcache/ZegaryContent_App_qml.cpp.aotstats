@@ -1,0 +1,36 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 17,
+                        "durationMicroseconds": 85,
+                        "errorMessage": "Cannot access value for name speed",
+                        "functionName": "rotate",
+                        "line": 21
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 12,
+                        "durationMicroseconds": 222,
+                        "errorMessage": "",
+                        "functionName": "x",
+                        "line": 28
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 17,
+                        "durationMicroseconds": 33,
+                        "errorMessage": "Cannot access value for name rpm",
+                        "functionName": "rotate",
+                        "line": 30
+                    }
+                ],
+                "filepath": "A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/App.qml"
+            }
+        ],
+        "moduleId": "ZegaryContent(ZegaryContent)"
+    }
+]

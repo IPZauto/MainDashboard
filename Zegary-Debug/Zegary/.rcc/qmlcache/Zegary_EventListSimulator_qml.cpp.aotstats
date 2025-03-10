@@ -1,0 +1,28 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 22,
+                        "durationMicroseconds": 9535,
+                        "errorMessage": "",
+                        "functionName": "onTriggered",
+                        "line": 15
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 28,
+                        "durationMicroseconds": 3717,
+                        "errorMessage": "",
+                        "functionName": "onCompleted",
+                        "line": 20
+                    }
+                ],
+                "filepath": "A:/studia/IPZ/MainDashboard/Zegary/Zegary/EventListSimulator.qml"
+            }
+        ],
+        "moduleId": "Zegary(Zegary)"
+    }
+]

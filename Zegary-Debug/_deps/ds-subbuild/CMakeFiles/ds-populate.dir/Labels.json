@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/CMakeFiles/ds-populate"
+		},
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/CMakeFiles/ds-populate.rule"
+		},
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/CMakeFiles/ds-populate-complete.rule"
+		},
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-build.rule"
+		},
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-configure.rule"
+		},
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-download.rule"
+		},
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-install.rule"
+		},
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-mkdir.rule"
+		},
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-patch.rule"
+		},
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-test.rule"
+		},
+		{
+			"file" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/ds-populate-prefix/src/ds-populate-stamp/ds-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"ds-populate"
+		],
+		"name" : "ds-populate"
+	}
+}

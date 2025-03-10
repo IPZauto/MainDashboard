@@ -1,0 +1,60 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 27,
+                        "durationMicroseconds": 114,
+                        "errorMessage": "Cannot load property block from (component in A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/logichelper/BidirectionalBinding.qml)::__internal with type QObject.",
+                        "functionName": "onValue01Changed",
+                        "line": 112
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 27,
+                        "durationMicroseconds": 26,
+                        "errorMessage": "Cannot load property block from (component in A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/logichelper/BidirectionalBinding.qml)::__internal with type QObject.",
+                        "functionName": "onValue02Changed",
+                        "line": 124
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 17,
+                        "durationMicroseconds": 136,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 138
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 16,
+                        "durationMicroseconds": 200,
+                        "errorMessage": "Cannot generate efficient code for LoadElement with non-list base type (component in A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/logichelper/BidirectionalBinding.qml)::target01 with type QObject (stored as QJSValue)",
+                        "functionName": "value",
+                        "line": 140
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 17,
+                        "durationMicroseconds": 56,
+                        "errorMessage": "",
+                        "functionName": "target",
+                        "line": 144
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 16,
+                        "durationMicroseconds": 176,
+                        "errorMessage": "Cannot generate efficient code for LoadElement with non-list base type (component in A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/logichelper/BidirectionalBinding.qml)::target02 with type QObject (stored as QJSValue)",
+                        "functionName": "value",
+                        "line": 146
+                    }
+                ],
+                "filepath": "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/logichelper/BidirectionalBinding.qml"
+            }
+        ],
+        "moduleId": "QtQuick.Studio.LogicHelper(QuickStudioLogicHelper)"
+    }
+]

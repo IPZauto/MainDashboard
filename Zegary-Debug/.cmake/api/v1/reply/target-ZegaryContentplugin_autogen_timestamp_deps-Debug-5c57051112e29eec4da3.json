@@ -1,0 +1,62 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"ZegaryContent/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"folder" : 
+	{
+		"name" : "QtInternalTargets"
+	},
+	"id" : "ZegaryContentplugin_autogen_timestamp_deps::@b8b06ff101cf33630a77",
+	"isGeneratorProvided" : true,
+	"name" : "ZegaryContentplugin_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "ZegaryContent",
+		"source" : "ZegaryContent"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/ZegaryContent/CMakeFiles/ZegaryContentplugin_autogen_timestamp_deps",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "A:/studia/IPZ/MainDashboard/Zegary-Debug/ZegaryContent/CMakeFiles/ZegaryContentplugin_autogen_timestamp_deps.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

@@ -1,0 +1,10 @@
+Zegaryplugin_init_autogen/timestamp: \
+	A:/QT/6.8.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in \
+	A:/QT/6.8.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreResourceInit.in.cpp \
+	A:/QT/6.8.1/mingw_64/lib/cmake/Qt6Qml/Qt6QmlModuleDirMappingTemplate.qrc.in \
+	A:/QT/6.8.1/mingw_64/lib/cmake/Qt6Qml/Qt6QmlPluginTemplate.cpp.in \
+	A:/QT/6.8.1/mingw_64/lib/cmake/Qt6Qml/Qt6qmldirTemplate.cmake.in \
+	A:/studia/IPZ/MainDashboard/Zegary-Debug/Zegary/Zegaryplugin_ZegaryPlugin_in.cpp \
+	A:/studia/IPZ/MainDashboard/Zegary-Debug/Zegary/Zegaryplugin_init.cpp \
+	A:/studia/IPZ/MainDashboard/Zegary/Zegary/CMakeLists.txt \
+	A:/QT/Tools/CMake_64/bin/cmake.exe

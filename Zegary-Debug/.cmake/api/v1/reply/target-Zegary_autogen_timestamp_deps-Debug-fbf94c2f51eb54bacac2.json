@@ -1,0 +1,38 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"Zegary/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "Zegary_tooling::@850deabdf69e4adc6f29"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "QtInternalTargets"
+	},
+	"id" : "Zegary_autogen_timestamp_deps::@850deabdf69e4adc6f29",
+	"isGeneratorProvided" : true,
+	"name" : "Zegary_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "Zegary",
+		"source" : "Zegary"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

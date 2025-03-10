@@ -1,0 +1,2 @@
+A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-build/src/imports/designeffects/.qsb/shaders/gaussianBlur.frag.qsb: \
+  A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/designeffects/shaders/gaussianBlur.frag

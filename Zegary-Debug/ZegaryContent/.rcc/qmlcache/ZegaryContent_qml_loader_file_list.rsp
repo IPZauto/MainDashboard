@@ -1,0 +1,9 @@
+--resource
+A:/studia/IPZ/MainDashboard/Zegary-Debug/ZegaryContent/.qt/rcc/qmake_ZegaryContent.qrc
+--resource
+A:/studia/IPZ/MainDashboard/Zegary-Debug/ZegaryContent/.qt/rcc/ZegaryContent_raw_qml_0.qrc
+/qt/qml/ZegaryContent/MiddleScreen.qml
+/qt/qml/ZegaryContent/MidScreen.ui.qml
+/qt/qml/ZegaryContent/App.qml
+/qt/qml/ZegaryContent/ZegarRight.ui.qml
+/qt/qml/ZegaryContent/ZegarLeft.ui.qml

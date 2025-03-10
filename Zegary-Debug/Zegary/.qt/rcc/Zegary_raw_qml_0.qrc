@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/qt/qml/Zegary/">
+    <file alias="EventListSimulator.qml">A:/studia/IPZ/MainDashboard/Zegary/Zegary/EventListSimulator.qml</file>
+    <file alias="Constants.qml">A:/studia/IPZ/MainDashboard/Zegary/Zegary/Constants.qml</file>
+    <file alias="EventListModel.qml">A:/studia/IPZ/MainDashboard/Zegary/Zegary/EventListModel.qml</file>
+  </qresource>
+</RCC>
+

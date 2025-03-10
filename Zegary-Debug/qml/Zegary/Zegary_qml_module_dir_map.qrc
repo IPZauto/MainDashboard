@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qt/qml/Zegary">A:/studia/IPZ/MainDashboard/Zegary-Debug/qml/Zegary</file>
+
+  </qresource>
+</RCC>

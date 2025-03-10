@@ -1,0 +1,3 @@
+A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/CMakeFiles/ds-populate.dir
+A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/CMakeFiles/edit_cache.dir
+A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-subbuild/CMakeFiles/rebuild_cache.dir

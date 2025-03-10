@@ -1,0 +1,11 @@
+-rootPath
+A:/studia/IPZ/MainDashboard/Zegary
+-cmake-output
+-output-file
+A:/studia/IPZ/MainDashboard/Zegary-Debug/.qt/qml_imports/ZegaryApp_build.cmake
+-importPath
+A:/studia/IPZ/MainDashboard/Zegary-Debug/qml
+-importPath
+A:/QT/6.8.1/mingw_64/qml
+-qrcFiles
+A:/studia/IPZ/MainDashboard/Zegary-Debug/.qt/rcc/configuration.qrc

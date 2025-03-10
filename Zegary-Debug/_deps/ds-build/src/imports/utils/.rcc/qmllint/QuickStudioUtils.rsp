@@ -1,0 +1,14 @@
+--bare
+-I
+A:/studia/IPZ/MainDashboard/Zegary-Debug/qml
+-I
+A:/studia/IPZ/MainDashboard/Zegary-Debug/qml
+-I
+A:/QT/6.8.1/mingw_64/qml
+--resource
+A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-build/src/imports/utils/.qt/rcc/qmake_QtQuick_Studio_Utils.qrc
+--resource
+A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-build/src/imports/utils/.qt/rcc/QuickStudioUtils_raw_qml_0.qrc
+A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/utils/JsonListModel.qml
+A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/utils/JsonBackend.qml
+A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/utils/ChildListModel.qml

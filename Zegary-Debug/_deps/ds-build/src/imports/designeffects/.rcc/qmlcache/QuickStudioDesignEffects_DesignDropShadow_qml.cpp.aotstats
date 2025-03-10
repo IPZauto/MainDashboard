@@ -1,0 +1,12 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                ],
+                "filepath": "A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-src/src/imports/designeffects/DesignDropShadow.qml"
+            }
+        ],
+        "moduleId": "QtQuick.Studio.DesignEffects(QuickStudioDesignEffects)"
+    }
+]

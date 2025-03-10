@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="/qt/qml/ZegaryContent/">
+    <file alias="MiddleScreen.qml">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/MiddleScreen.qml</file>
+    <file alias="MidScreen.ui.qml">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/MidScreen.ui.qml</file>
+    <file alias="App.qml">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/App.qml</file>
+    <file alias="ZegarRight.ui.qml">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/ZegarRight.ui.qml</file>
+    <file alias="ZegarLeft.ui.qml">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/ZegarLeft.ui.qml</file>
+    <file alias="images/lights.svg">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/images/lights.svg</file>
+    <file alias="images/long.svg">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/images/long.svg</file>
+    <file alias="images/Fuel.svg">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/images/Fuel.svg</file>
+    <file alias="images/LeftSignal.svg">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/images/LeftSignal.svg</file>
+    <file alias="images/WheatherWarning.svg">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/images/WheatherWarning.svg</file>
+    <file alias="images/HandBrake.svg">A:/studia/IPZ/MainDashboard/Zegary/ZegaryContent/images/HandBrake.svg</file>
+  </qresource>
+</RCC>
+
