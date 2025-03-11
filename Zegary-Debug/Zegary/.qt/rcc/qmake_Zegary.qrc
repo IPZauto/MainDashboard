@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/qt/qml/Zegary">
-    <file alias="qmldir">A:/studia/IPZ/MainDashboard/Zegary-Debug/qml/Zegary/qmldir</file>
-  </qresource>
-</RCC>
-

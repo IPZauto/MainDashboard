@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="/">
-    <file alias="/QtQuick/Studio/Utils">A:/studia/IPZ/MainDashboard/Zegary-Debug/qml/QtQuick/Studio/Utils</file>
-
-  </qresource>
-</RCC>

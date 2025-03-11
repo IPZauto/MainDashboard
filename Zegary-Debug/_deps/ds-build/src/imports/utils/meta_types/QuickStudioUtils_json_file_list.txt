@@ -1,2 +1,0 @@
-A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-build/src/imports/utils/QuickStudioUtils_autogen/include/../EWIEGA46WW/moc_quickstudiocsvtablemodel_p.cpp.json
-A:/studia/IPZ/MainDashboard/Zegary-Debug/_deps/ds-build/src/imports/utils/QuickStudioUtils_autogen/include/../EWIEGA46WW/moc_quickstudiofilereader_p.cpp.json

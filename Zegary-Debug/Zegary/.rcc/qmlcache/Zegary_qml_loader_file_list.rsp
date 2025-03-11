@@ -1,7 +1,0 @@
---resource
-A:/studia/IPZ/MainDashboard/Zegary-Debug/Zegary/.qt/rcc/qmake_Zegary.qrc
---resource
-A:/studia/IPZ/MainDashboard/Zegary-Debug/Zegary/.qt/rcc/Zegary_raw_qml_0.qrc
-/qt/qml/Zegary/EventListSimulator.qml
-/qt/qml/Zegary/Constants.qml
-/qt/qml/Zegary/EventListModel.qml
