@@ -13,7 +13,7 @@ Window {
     color: "#151414"
 
     property int speed: 145
-    property int rpm: 96
+    property int rpm: 8
 
     ZegarLeft {
         x: 0

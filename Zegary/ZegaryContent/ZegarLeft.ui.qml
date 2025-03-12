@@ -81,6 +81,21 @@ Rectangle {
         font.bold: false
     }
 
+    Text {
+        id: licznik1
+        x: 205
+        y: 280
+        width: 140
+        height: 120
+        color: "#79797979"
+        text: "km/h"
+        font.pixelSize: 50
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.family: "Arial"
+        font.bold: false
+    }
+
     GroupItem {
         id: rotator
         x: 276
