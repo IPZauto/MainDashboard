@@ -15,7 +15,7 @@ Rectangle {
     id: tlo
     width: 550
     height: 550
-    property int rotate: 225
+    property int rotate: 1
     color: "#151414"
 
     states: [
@@ -78,13 +78,43 @@ Rectangle {
         font.bold: false
     }
 
+    Text {
+        id: licznik1
+        x: 205
+        y: 280
+        width: 140
+        height: 120
+        color: "#79797979"
+        text: "RPM"
+        font.pixelSize: 50
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.family: "Arial"
+        font.bold: false
+    }
+
+    Text {
+        id: licznik2
+        x: 205
+        y: 320
+        width: 140
+        height: 120
+        color: "#79797979"
+        text: "1000x"
+        font.pixelSize: 20
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.family: "Arial"
+        font.bold: false
+    }
+
     GroupItem {
         id: rotator
         x: 276
         y: 235
         width: 250
         height: 80
-        rotation: 60 - rotate / 1.5
+        rotation: 60 - rotate * 15
         transformOrigin: Item.Left
 
         RectangleItem {
