@@ -11,22 +11,13 @@ import QtQuick.Controls
 import QtQuick.Shapes 1.0
 
 Rectangle {
-    readonly property color background_color: "#151414"
-    property bool handbrake_visibilty: true
-    property bool lights_visibilty: true //normal lights
-    property bool long_visibilty: true //long lights
-    property bool fuel_visibilty: true
-    property bool left_signal: true
-    property bool right_signal: true
-    property bool emergency: true
-    property bool battteryWarning: true
     property string messageTextSrc: "Bad wheather\n slow down"
     //property string messageTextSrc: ""
     //property string messageIconSrc: "images/WheatherWarning.svg"
     property string messageIconSrc: ""
-
+    property int m_duration: 250
     id: root
-    color: background_color
+    color: styl.color
     width: 800
     height: 550
 
@@ -40,18 +31,21 @@ Rectangle {
         height: 64
         source: "images/LeftSignal.svg"
         fillMode: Image.PreserveAspectFit
-        opacity: 0.2
+        Binding on opacity {
+            when: !backend.blinkerLeftActive
+            value: 0.2
+        }
         SequentialAnimation on opacity {
             id: leftBlink
-            running: (left_signal || emergency)
+            running: backend.blinkerLeftActive
             loops: Animation.Infinite
             NumberAnimation {
                 to: 1
-                duration: 500
+                duration: root.m_duration
             }
             NumberAnimation {
                 to: 0.2
-                duration: 500
+                duration: root.m_duration
             }
         }
     }
@@ -67,18 +61,21 @@ Rectangle {
         source: "images/LeftSignal.svg"
         rotation: 180
         fillMode: Image.PreserveAspectFit
-        opacity: 0.2
+        Binding on opacity {
+            when: !backend.blinkerRightActive
+            value: 0.2
+        }
         SequentialAnimation on opacity {
             id: rightBlink
-            running: (right_signal || emergency)
+            running: backend.blinkerRightActive
             loops: Animation.Infinite
             NumberAnimation {
                 to: 1
-                duration: 500
+                duration: root.m_duration
             }
             NumberAnimation {
                 to: 0.2
-                duration: 500
+                duration: root.m_duration
             }
         }
     }
@@ -91,7 +88,7 @@ Rectangle {
         height: 64
         source: "images/HandBrake.svg"
         fillMode: Image.PreserveAspectFit
-        visible: handbrake_visibilty
+        visible: backend.parkBrakeOn;
     }
 
     Image {
@@ -102,7 +99,7 @@ Rectangle {
         height: 64
         source: "images/Fuel.svg"
         fillMode: Image.PreserveAspectFit
-        visible: fuel_visibilty
+        visible: backend.fuelWarningOn;
     }
 
     Image {
@@ -115,7 +112,7 @@ Rectangle {
         height: 64
         source: "images/long.svg"
         fillMode: Image.PreserveAspectFit
-        visible: long_visibilty
+        visible: backend.highBeamOn
     }
     Image {
         id: lights
@@ -127,7 +124,7 @@ Rectangle {
         height: 64
         source: "images/lights.svg"
         fillMode: Image.PreserveAspectFit
-        visible: lights_visibilty
+        visible: backend.lightsOn
     }
 
     Rectangle {

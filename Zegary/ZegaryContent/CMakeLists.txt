@@ -10,10 +10,10 @@ qt6_add_qml_module(ZegaryContent
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
         "ZegarRight.ui.qml"
+
         "MidScreen.ui.qml"
         "App.qml"
         "ZegarLeft.ui.qml"
-        "MiddleScreen.qml"
     RESOURCES
         "images/long.svg"
         "images/WheatherWarning.svg"

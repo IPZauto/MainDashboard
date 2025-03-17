@@ -3,8 +3,12 @@
 
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 #include "autogen/environment.h"
+#include "game.h"
+#include "networkdata.h"
+#include "style.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,6 +16,16 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+
+    Game backend;
+
+    NetworkData network(&app,TELEMETREY_URL,&backend);
+
+    Style styl;
+
+    engine.rootContext()->setContextProperty("backend", &backend);
+    engine.rootContext()->setContextProperty("styl", &styl);
+
     const QUrl url(mainQmlFile);
     QObject::connect(
                 &engine, &QQmlApplicationEngine::objectCreated, &app,
@@ -24,8 +38,11 @@ int main(int argc, char *argv[])
     engine.addImportPath(":/");
     engine.load(url);
 
+    styl.setColor(QColor(200,20,30));
+
     if (engine.rootObjects().isEmpty())
         return -1;
+
 
     return app.exec();
 }

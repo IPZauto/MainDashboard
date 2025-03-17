@@ -15,12 +15,8 @@ Rectangle {
     id: tlo
     width: 550
     height: 550
-    color: "#151414"
 
-    property int rotate: 200
-    property int cruiseControl: 150
-    property bool cruiseControlOnOff: true
-
+    color: styl.color
     states: [
         State {
             name: "clicked"
@@ -76,7 +72,7 @@ Rectangle {
         width: 140
         height: 120
         color: "#79797979"
-        text: rotate.toString()
+        text: backend.speed.toString()
         font.pixelSize: 90
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -105,7 +101,7 @@ Rectangle {
         y: 235
         width: 250
         height: 80
-        rotation: 120 + rotate / 1.5
+        rotation: 120 + backend.speed / 1.5
         transformOrigin: Item.Left
 
         RectangleItem {
