@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 8.4666666 8.4666666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="CruiseControl.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="16.388211"
+     inkscape:cx="2.0441523"
+     inkscape:cy="8.9393526"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       markerWidth="1.37201713"
+       markerHeight="2.47014093"
+       refX="1"
+       refY="0"
+       orient="auto"
+       id="marker7"
+       viewBox="0 0 1.37201709 2.47014087"
+       preserveAspectRatio="xMidYMid">
+      <rect
+         style="fill:#4bcb34;fill-opacity:1;stroke:#4bcb34;stroke-width:0.654013;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers stroke fill"
+         id="rect7"
+         width="0.71800411"
+         height="1.8161279"
+         x="0.32700661"
+         y="0.32700661"
+         ry="0.031676654" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path1"
+       style="fill:none;stroke:#4bcb34;stroke-width:0.239;stroke-linecap:square;stroke-miterlimit:0;stroke-dasharray:none;marker-start:url(#marker7);marker-mid:url(#marker7);marker-end:url(#marker7);paint-order:markers fill stroke"
+       d="m 7.8178749,4.2333336 c 0,0.9898437 -0.4012135,1.8859791 -1.0498878,2.5346535 C 6.1193127,7.4166614 5.2231773,7.8178749 4.2333336,7.8178749 3.2434898,7.8178749 2.3473545,7.4166615 1.6986801,6.7679871 1.0500057,6.1193127 0.64879227,5.2231774 0.64879227,4.2333336 c 0,-0.9898438 0.40121343,-1.8859791 1.04988783,-2.5346535 0.6486744,-0.6486744 1.5448097,-1.04988784 2.5346535,-1.04988783 0.9898438,1e-8 1.8859791,0.40121343 2.5346535,1.04988783 0.6486744,0.6486744 1.0498878,1.5448097 1.0498878,2.5346535 z"
+       sodipodi:nodetypes="sssssssss" />
+    <path
+       id="rect3"
+       style="fill:#4bcb34;fill-opacity:1;stroke:none;stroke-width:0.135503;stroke-linecap:square;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 1.2333859,1.3141454 1.0860485,0.80899773 0.9645266,0.93589903 1.0369892,0.85933176 0.63989092,0.48352136 0.38449591,0.75338329 0.78046856,1.1281284 0.72183903,1.1893272 Z" />
+    <g
+       id="g4">
+      <ellipse
+         style="fill:#4bcb34;fill-opacity:1;stroke:none;stroke-width:0.285841;stroke-linecap:square;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers fill stroke"
+         id="path3"
+         cx="4.2425628"
+         cy="4.2333331"
+         rx="0.40610465"
+         ry="0.39687499" />
+      <path
+         style="fill:#4bcb34;fill-opacity:1;stroke:#4bcb34;stroke-width:0.25;stroke-linecap:round;stroke-miterlimit:0;stroke-opacity:1;paint-order:markers fill stroke"
+         d="M 2.51385,2.5071625 4.0637445,4.0409123"
+         id="path4" />
+    </g>
+  </g>
+</svg>

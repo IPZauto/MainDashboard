@@ -13,16 +13,24 @@ Window {
     color: "#151414"
 
     property int speed: 145
-    property int rpm: 8
+    property int rpm: 6543
+    property int tempomat: 150
+    property bool tempomatOnOff: true
+
+    //ikonki
+    property bool batteryLow: true
 
     ZegarLeft {
         x: 0
         y: 0
         rotate: speed
+        cruiseControl: tempomat
+        cruiseControlOnOff: tempomatOnOff
     }
     MidScreen {
         x: 560
         y: 0
+        battteryWarning: batteryLow
     }
     ZegarRight {
         x: 1920 - 550

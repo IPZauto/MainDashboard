@@ -19,6 +19,7 @@ Rectangle {
     property bool left_signal: true
     property bool right_signal: true
     property bool emergency: true
+    property bool battteryWarning: true
     property string messageTextSrc: "Bad wheather\n slow down"
     //property string messageTextSrc: ""
     //property string messageIconSrc: "images/WheatherWarning.svg"
@@ -95,7 +96,7 @@ Rectangle {
 
     Image {
         id: fuel
-        x: handBrake.x - fuel.width - 50
+        x: handBrake.x - handBrake.width - 50
         y: 456
         width: 64
         height: 64
@@ -106,8 +107,10 @@ Rectangle {
 
     Image {
         id: _long
-        x: handBrake.x + handBrake.width + 50
-        y: 456
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: 32 + 25
+        anchors.top: parent.top
+        anchors.topMargin: 30
         width: 64
         height: 64
         source: "images/long.svg"
@@ -117,6 +120,7 @@ Rectangle {
     Image {
         id: lights
         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: -32 - 25
         anchors.top: parent.top
         anchors.topMargin: 30
         width: 64
@@ -129,7 +133,7 @@ Rectangle {
     Rectangle {
         id: messageScreen
         color: "#000000"
-        width: 300
+        width: 600
         height: 350
         anchors.centerIn: parent
         Column {
@@ -153,5 +157,17 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
             }
         }
+    }
+
+    Image {
+        id: lowBatteryWarning
+        x: handBrake.x + handBrake.width + 50
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 30
+        width: 64
+        height: 64
+        visible: battteryWarning
+        source: "images/batteryWarning.svg"
+        fillMode: Image.PreserveAspectFit
     }
 }

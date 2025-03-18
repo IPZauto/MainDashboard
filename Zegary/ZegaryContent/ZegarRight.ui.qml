@@ -15,8 +15,9 @@ Rectangle {
     id: tlo
     width: 550
     height: 550
-    property int rotate: 1
     color: "#151414"
+
+    property int rotate: 5321
 
     states: [
         State {
@@ -70,7 +71,7 @@ Rectangle {
         width: 140
         height: 120
         color: "#79797979"
-        text: rotate.toString()
+        text: ((rotate - rotate % 1000) / 1000).toString()
         font.pixelSize: 90
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -114,7 +115,7 @@ Rectangle {
         y: 235
         width: 250
         height: 80
-        rotation: 60 - rotate * 15
+        rotation: 60 - rotate * 15 / 1000
         transformOrigin: Item.Left
 
         RectangleItem {

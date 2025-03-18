@@ -15,9 +15,12 @@ Rectangle {
     id: tlo
     width: 550
     height: 550
-    property int rotate: 200
-
     color: "#151414"
+
+    property int rotate: 200
+    property int cruiseControl: 150
+    property bool cruiseControlOnOff: true
+
     states: [
         State {
             name: "clicked"
@@ -129,6 +132,39 @@ Rectangle {
             strokeWidth: 0
             strokeColor: "#00ff0000"
             adjustBorderRadius: true
+        }
+    }
+
+    GroupItem {
+        id: tempomat
+        x: 370
+        y: 220
+
+        Image {
+            id: tempomatIcon
+            x: 0
+            y: 0
+            width: 128
+            height: 64
+            visible: cruiseControlOnOff
+            source: "images/CruiseControl.svg"
+            fillMode: Image.PreserveAspectFit
+        }
+
+        Text {
+            id: tempomatVel
+            x: 0
+            y: 64
+            width: 128
+            height: 46
+            visible: cruiseControlOnOff
+            color: "#79797979"
+            text: cruiseControl.toString()
+            font.pixelSize: 50
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.family: "Arial"
+            font.bold: false
         }
     }
 }
