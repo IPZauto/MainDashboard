@@ -99,6 +99,18 @@ void Game::setHighBeamOn(const bool highBeam){
     emit highBeamOnChanged();
 }
 
+void Game::setCsOn(const bool csOn){
+    if(Truck.cruiseControlOn==csOn) return;
+    Truck.cruiseControlOn=csOn;
+    emit csOnChanged();
+}
+
+void Game::setCsSpeed(const int speed){
+    if(Truck.cruiseControlSpeed==speed)return;
+    Truck.cruiseControlSpeed=speed;
+    emit csSpeedChanged();
+}
+
 Placement Game::placement() const {return this->GameInfo.placement;}
 
 bool Game::conneted() const {return this->GameInfo.connected;}
@@ -115,6 +127,8 @@ int Game::maxRpm() const {return this->Truck.engineRPMmax;}
 
 int Game::gear() const {return Truck.gear;}
 
+int Game::csSpeed() const {return Truck.cruiseControlSpeed;}
+
 bool Game::fuelWarningOn() const {return this->Truck.fuelWarningOn;}
 
 bool Game::parkBrakeOn() const {return this->Truck.parkBrakeOn;}
@@ -130,3 +144,5 @@ bool Game::lightsOn() const {return this->Truck.lightsOn;}
 bool Game::highBeamOn() const {return this->Truck.highBeamOn;}
 
 bool Game::batteryVoltageWarningOn() const {return Truck.batteryVoltageWarningOn;}
+
+bool Game::csOn() const {return Truck.cruiseControlOn;}

@@ -51,11 +51,15 @@ void NetworkData::fetchTelemetryData(){
                     m_gameData->setRpm(truck["engineRpm"].toDouble());
                     m_gameData->setMaxRpm(truck["engineRpmMax"].toDouble());
                     m_gameData->setFuelWarningOn(truck["fuelWarningOn"].toBool());
-                    m_gameData->setBlinkerLeftActive(truck["blinkerLeftActive"].toBool());
-                    m_gameData->setBlinkerRightActive(truck["blinkerRightActive"].toBool());
+                    m_gameData->setBlinkerLeftActive(truck["blinkerLeftOn"].toBool());
+                    m_gameData->setBlinkerRightActive(truck["blinkerRightOn"].toBool());
                     m_gameData->setLightsOn(truck["lightsBeamLowOn"].toBool());
                     m_gameData->setHighBeamOn(truck["lightsBeamHighOn"].toBool());
                     m_gameData->setParkBrakeOn(truck["parkBrakeOn"].toBool());
+                    m_gameData->setGear(truck["gear"].toInt());
+                    m_gameData->setBatteryVoltageWarningOn(truck["batteryVoltageWarningOn"].toBool());
+                    m_gameData->setCsOn(truck["cruiseControlOn"].toBool());
+                    m_gameData->setCsSpeed(truck["cruiseControlSpeed"].toInt());
 
                     //extract truck placement
                     QJsonObject placement = truck["placement"].toObject();

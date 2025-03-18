@@ -69,7 +69,7 @@ Rectangle {
         width: 140
         height: 120
         color: "#79797979"
-        text: ((backend.engineRPM - backend.engineRPM  % 1000) / 1000).toString()
+        text: ((backend.engineRPM - backend.engineRPM % 1000) / 1000).toString()
         font.pixelSize: 90
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -142,4 +142,41 @@ Rectangle {
             adjustBorderRadius: true
         }
     }
+
+    Text {
+        id: gear
+        x: 75
+        y: 241
+        width: 100
+        height: 80
+        text: backend.gear
+        color: "#959595"
+        font.pixelSize: 60
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.family: "Arial"
+        font.bold: false
+    }
+
+    Text {
+        id: gearText
+        anchors.top: gear.bottom
+        anchors.left: gear.left
+        width: 100
+        height: 50
+        color: "#79797979"
+        text: "gear"
+        font.pixelSize: 30
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.family: "Arial"
+        font.bold: false
+    }
 }
+
+/*##^##
+Designer {
+    D{i:0}D{i:5;invisible:true}D{i:6;invisible:true}D{i:7;invisible:true}
+}
+##^##*/
+

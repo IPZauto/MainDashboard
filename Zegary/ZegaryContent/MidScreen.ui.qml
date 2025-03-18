@@ -163,7 +163,7 @@ Rectangle {
         anchors.bottomMargin: 30
         width: 64
         height: 64
-        visible: battteryWarning
+        visible: backend.batteryVoltageWarningOn
         source: "images/batteryWarning.svg"
         fillMode: Image.PreserveAspectFit
     }

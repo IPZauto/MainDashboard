@@ -14,8 +14,8 @@
 #include <QTimer>
 #include "game.h"
 
-// const QString TELEMETREY_URL = "http://192.168.18.36:25555/api/ets2/telemetry";
-const QString TELEMETREY_URL = "http://192.168.18.36:25555/api/ets2/telemet";
+const QString TELEMETREY_URL = "http://192.168.18.36:25555/api/ets2/telemetry";
+//const QString TELEMETREY_URL = "http://192.168.18.36:25555/api/ets2/telemet";
 
 class NetworkData : public QObject
 {

@@ -142,7 +142,7 @@ Rectangle {
             y: 0
             width: 128
             height: 64
-            visible: cruiseControlOnOff
+            visible: backend.csOn
             source: "images/CruiseControl.svg"
             fillMode: Image.PreserveAspectFit
         }
@@ -153,9 +153,9 @@ Rectangle {
             y: 64
             width: 128
             height: 46
-            visible: cruiseControlOnOff
+            visible: backend.csOn
             color: "#79797979"
-            text: cruiseControl.toString()
+            text: backend.csSpeed.toString()
             font.pixelSize: 50
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter

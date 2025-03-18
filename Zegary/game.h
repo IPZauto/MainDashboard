@@ -37,6 +37,9 @@ class Game : public QObject
     Q_PROPERTY(bool lightsOn READ lightsOn WRITE setLightsOn NOTIFY lightsOnChanged FINAL)
     Q_PROPERTY(bool highBeamOn READ highBeamOn WRITE setHighBeamOn NOTIFY highBeamOnChanged FINAL)
     Q_PROPERTY(int gear READ gear WRITE setGear NOTIFY gearChanged FINAL)
+    Q_PROPERTY(int csSpeed READ csSpeed WRITE setCsSpeed NOTIFY csSpeedChanged FINAL)
+    Q_PROPERTY(bool csOn READ csOn WRITE setCsOn NOTIFY csOnChanged FINAL)
+    Q_PROPERTY(bool batteryVoltageWarningOn READ batteryVoltageWarningOn WRITE setBatteryVoltageWarningOn NOTIFY batteryVoltageWarningOnChanged FINAL)
 
 public:
     explicit Game(QObject *parent = nullptr){
@@ -61,6 +64,8 @@ public:
         setParkBrakeOn(false);
         setLightsOn(false);
         setBatteryVoltageWarningOn(false);
+        setCsSpeed(0);
+        setCsOn(false);
     };
 
     // settery
@@ -102,6 +107,9 @@ public:
 
     void setBatteryVoltageWarningOn(const bool);
 
+    void setCsSpeed(const int);
+
+    void setCsOn(const bool);
     // gettery
 
     Placement placement() const;
@@ -121,6 +129,8 @@ public:
     bool lightsOn() const;
     bool highBeamOn() const;
     bool batteryVoltageWarningOn() const;
+    int csSpeed() const;
+    bool csOn() const;
 
 
 signals:
@@ -135,6 +145,8 @@ signals:
     void highBeamOnChanged();
     void gearChanged();
     void batteryVoltageWarningOnChanged();
+    void csSpeedChanged();
+    void csOnChanged();
 
 private:
     struct GameInfo{
@@ -157,6 +169,8 @@ private:
 
         int gear;
 
+        int cruiseControlSpeed;
+
         bool fuelWarningOn;
 
         bool batteryVoltageWarningOn;
@@ -170,6 +184,8 @@ private:
 
         bool lightsOn;
         bool highBeamOn;
+
+        bool cruiseControlOn;
 
     }Truck;
 
