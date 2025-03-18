@@ -36,6 +36,7 @@ class Game : public QObject
     Q_PROPERTY(bool blinkerLeftActive READ blinkerLeftActive WRITE setBlinkerLeftActive NOTIFY blinkerLeftActiveChanged FINAL)
     Q_PROPERTY(bool lightsOn READ lightsOn WRITE setLightsOn NOTIFY lightsOnChanged FINAL)
     Q_PROPERTY(bool highBeamOn READ highBeamOn WRITE setHighBeamOn NOTIFY highBeamOnChanged FINAL)
+    Q_PROPERTY(int gear READ gear WRITE setGear NOTIFY gearChanged FINAL)
 
 public:
     explicit Game(QObject *parent = nullptr){
@@ -51,6 +52,7 @@ public:
         setSpeed(0);
         setRpm(0);
         setMaxRpm(0);
+        setGear(0);
         setFuelWarningOn(false);
         setBlinkerLeftActive(false);
         setBlinkerRightActive(false);
@@ -58,6 +60,7 @@ public:
         Truck.lightsDashboardValue=0.0;
         setParkBrakeOn(false);
         setLightsOn(false);
+        setBatteryVoltageWarningOn(false);
     };
 
     // settery
@@ -95,6 +98,10 @@ public:
 
     void setHighBeamOn(const bool);
 
+    void setGear(const int);
+
+    void setBatteryVoltageWarningOn(const bool);
+
     // gettery
 
     Placement placement() const;
@@ -105,6 +112,7 @@ public:
     int speed() const;
     int rpm() const;
     int maxRpm() const;
+    int gear() const;
     bool fuelWarningOn() const;
     bool parkBrakeOn() const;
     float getLdv() const;
@@ -112,6 +120,7 @@ public:
     bool blinkerLeftActive() const;
     bool lightsOn() const;
     bool highBeamOn() const;
+    bool batteryVoltageWarningOn() const;
 
 
 signals:
@@ -124,6 +133,8 @@ signals:
     void blinkerRightActiveChanged();
     void lightsOnChanged();
     void highBeamOnChanged();
+    void gearChanged();
+    void batteryVoltageWarningOnChanged();
 
 private:
     struct GameInfo{
@@ -144,7 +155,11 @@ private:
 
         int engineRPMmax;
 
+        int gear;
+
         bool fuelWarningOn;
+
+        bool batteryVoltageWarningOn;
 
         bool parkBrakeOn;
 
@@ -163,3 +178,92 @@ private:
 
 
 #endif // GAME_H
+
+/* reference
+ * {"game":{
+ * "connected":false,
+ * "gameName":"ETS2",
+ * "paused":true,
+ * "time":"0001-01-01T00:00:00Z",
+ * "timeScale":0.0,
+ * "nextRestStopTime":"0001-01-01T00:00:00Z",
+ * "version":"1.18",
+ * "telemetryPluginVersion":"9"},
+ *
+ * "truck":{
+ * "id":"mercedes",
+ * "make":"Mercedes-Benz",
+ * "model":"New Actros",
+ * "speed":0.0,
+ * "cruiseControlSpeed":0.0,
+ * "cruiseControlOn":false,
+ * "odometer":0.0,
+ * "gear":0,
+ * "displayedGear":0,
+ * "forwardGears":12,
+ * "reverseGears":4,
+ * "shifterType":"arcade",
+ * "engineRpm":0.0,
+ * "engineRpmMax":2300.0,
+ * "fuel":0.0,
+ * "fuelCapacity":1140.0,
+ * "fuelAverageConsumption":0.0,
+ * "fuelWarningFactor":0.15,
+ * "fuelWarningOn":false,
+ * "wearEngine":0.0,
+ * "wearTransmission":0.0,
+ * "wearCabin":0.0,
+ * "wearChassis":0.0,
+ * "wearWheels":0.0,
+ * "userSteer":0.0,
+ * "userThrottle":0.0,
+ * "userBrake":0.0,
+ * "userClutch":0.0,
+ * "gameSteer":0.0,
+ * "gameThrottle":0.0,
+ * "gameBrake":0.0,
+ * "gameClutch":0.0,
+ * "shifterSlot":0,
+ * "engineOn":false,
+ * "electricOn":false,
+ * "wipersOn":false,
+ * "retarderBrake":0,
+ * "retarderStepCount":4,
+ * "parkBrakeOn":false,
+ * "motorBrakeOn":false,
+ * "brakeTemperature":0.0,
+ * "adblue":0.0,
+ * "adblueCapacity":90.0,
+ * "adblueAverageConsumption":0.0,
+ * "adblueWarningOn":false,
+ * "airPressure":0.0,
+ * "airPressureWarningOn":false,
+ * "airPressureWarningValue":80.04,
+ * "airPressureEmergencyOn":false,
+ * "airPressureEmergencyValue":40.02,
+ * "oilTemperature":0.0,
+ * "oilPressure":0.0,
+ * "oilPressureWarningOn":false,
+ * "oilPressureWarningValue":10.15,
+ * "waterTemperature":0.0,
+ * "waterTemperatureWarningOn":false,
+ * "waterTemperatureWarningValue":95.0,
+ * "batteryVoltage":0.0,
+ * "batteryVoltageWarningOn":false,
+ * "batteryVoltageWarningValue":23.76,
+ * "lightsDashboardValue":0.0,
+ * "lightsDashboardOn":false,
+ * "blinkerLeftActive":false,
+ * "blinkerRightActive":false,
+ * "blinkerLeftOn":false,
+ * "blinkerRightOn":false,
+ * "lightsParkingOn":false,
+ * "lightsBeamLowOn":false,
+ * "lightsBeamHighOn":false,
+ * "lightsAuxFrontOn":false,
+ * "lightsAuxRoofOn":false,
+ * "lightsBeaconOn":false,
+ * "lightsBrakeOn":false,
+ * "lightsReverseOn":false,
+ * "placement":{"x":0.0,"y":0.0,"z":0.0,"heading":0.0,"pitch":0.0,"roll":0.0},"acceleration":{"x":0.0,"y":0.0,"z":0.0},"head":{"x":-0.717515469,"y":1.603781,"z":0.5479934},"cabin":{"x":8.11042835E-16,"y":1.21850824,"z":-2.50167227},"hook":{"x":0.0,"y":1.0,"z":1.45}},"trailer":{"attached":false,"id":"","name":"","mass":0.0,"wear":0.0,"placement":{"x":0.0,"y":0.0,"z":0.0,"heading":0.0,"pitch":0.0,"roll":0.0}},"job":{"income":0,"deadlineTime":"0001-01-01T00:00:00Z","remainingTime":"0001-01-01T00:00:00Z","sourceCity":"","sourceCompany":"","destinationCity":"","destinationCompany":""},"navigation":{"estimatedTime":"0001-01-01T00:00:00Z","estimatedDistance":0,"speedLimit":0}}
+ */

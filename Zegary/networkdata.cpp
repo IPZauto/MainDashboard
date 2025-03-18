@@ -79,3 +79,12 @@ void NetworkData::fetchTelemetryData(){
         reply->deleteLater();
     });
 }
+
+void NetworkData::setUrl(const QString url){
+    qDebug() << "done";
+    dialogUrl = url;
+    m_url = QUrl(dialogUrl);
+    emit urlChanged();
+}
+
+QString NetworkData::url() const{return dialogUrl;}

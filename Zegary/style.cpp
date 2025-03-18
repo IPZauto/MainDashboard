@@ -13,3 +13,16 @@ QColor Style::color() const { return m_color; }
 void Style::updateColor(const QColor color){
     setColor(color);
 }
+
+QColor Style::colorUpdate(const int fatigue, const int timeOfDay){
+    // to do
+    return QColor("red");
+}
+
+void Style::setFatigue(const int fatigue){
+    m_fatigue = fatigue;
+}
+
+void Style::setTimeOfDay(const int timeOfDay){
+    m_timeOfDay = timeOfDay;
+}

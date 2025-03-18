@@ -47,6 +47,18 @@ void Game::setMaxRpm(const int maxRpm){
     emit maxRpmChanged();
 }
 
+void Game::setGear(const int gear){
+    if (Truck.gear==gear) return;
+    Truck.gear=gear;
+    emit gearChanged();
+}
+
+void Game::setBatteryVoltageWarningOn(const bool on){
+    if (Truck.batteryVoltageWarningOn==on) return;
+    Truck.batteryVoltageWarningOn=on;
+    emit batteryVoltageWarningOnChanged();
+}
+
 void Game::setFuelWarningOn(const bool warningOn){
     if (Truck.fuelWarningOn==warningOn) return;
     Truck.fuelWarningOn=warningOn;
@@ -101,6 +113,8 @@ int Game::rpm() const {return this->Truck.engineRPM;}
 
 int Game::maxRpm() const {return this->Truck.engineRPMmax;}
 
+int Game::gear() const {return Truck.gear;}
+
 bool Game::fuelWarningOn() const {return this->Truck.fuelWarningOn;}
 
 bool Game::parkBrakeOn() const {return this->Truck.parkBrakeOn;}
@@ -114,3 +128,5 @@ bool Game::blinkerRightActive() const {return this->Truck.blinkerRightActive;}
 bool Game::lightsOn() const {return this->Truck.lightsOn;}
 
 bool Game::highBeamOn() const {return this->Truck.highBeamOn;}
+
+bool Game::batteryVoltageWarningOn() const {return Truck.batteryVoltageWarningOn;}

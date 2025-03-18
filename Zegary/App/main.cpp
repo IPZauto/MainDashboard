@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("backend", &backend);
     engine.rootContext()->setContextProperty("styl", &styl);
+    engine.rootContext()->setContextProperty("network",&network);
 
     const QUrl url(mainQmlFile);
     QObject::connect(
@@ -37,8 +38,6 @@ int main(int argc, char *argv[])
     engine.addImportPath(QCoreApplication::applicationDirPath() + "/qml");
     engine.addImportPath(":/");
     engine.load(url);
-
-    styl.setColor(QColor(200,20,30));
 
     if (engine.rootObjects().isEmpty())
         return -1;

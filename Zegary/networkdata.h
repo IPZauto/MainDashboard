@@ -14,19 +14,31 @@
 #include <QTimer>
 #include "game.h"
 
-const QString TELEMETREY_URL = "http://192.168.18.36:25555/api/ets2/telemetry";
+// const QString TELEMETREY_URL = "http://192.168.18.36:25555/api/ets2/telemetry";
+const QString TELEMETREY_URL = "http://192.168.18.36:25555/api/ets2/telemet";
 
 class NetworkData : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString url READ url WRITE setUrl NOTIFY urlChanged FINAL)
 public:
     explicit NetworkData(QObject *parent = nullptr, QString url = TELEMETREY_URL, Game *game = nullptr);
     ~NetworkData();
+
+    void setUrl(const QString);
+
+    QString url() const;
+
+signals:
+    void urlChanged();
+
+
 private:
     Game *m_gameData;
     QUrl m_url;
     QNetworkAccessManager *m_manager;
     QTimer *m_timer;
+    QString dialogUrl;
 private slots:
     void fetchTelemetryData();
 };
