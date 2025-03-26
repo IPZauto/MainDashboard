@@ -13,7 +13,28 @@ Window {
     title: "Zegary"
 
     property bool batteryLow: true
-    color: styl.color
+    //color: styl.color
+
+    property bool pulsating: false
+    property int pulseDuration: 250
+
+    Binding on color {
+        when: !pulsating
+        value: "#797979"
+    }
+    SequentialAnimation on color {
+        id: pulseBackground
+        running: pulsating
+        loops: Animation.Infinite
+        NumberAnimation {
+            to: "#550088"
+            duration: pulseDuration
+        }
+        NumberAnimation {
+            to: "#797979"
+            duration: pulseDuration
+        }
+    }
 
     property string serverUrl: ""
 

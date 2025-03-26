@@ -9,19 +9,19 @@ qt6_add_qml_module(ZegaryContent
     VERSION 1.0
     RESOURCE_PREFIX "/qt/qml"
     QML_FILES
-        "ZegarLeft.ui.qml"
-        "ZegarRight.ui.qml"
         "MidScreen.ui.qml"
         "App.qml"
+        "ZegarLeft.ui.qml"
+        "ZegarRight.ui.qml"
     RESOURCES
+        "images/batteryWarning.svg"
+        "images/LeftSignal.svg"
         "images/lights.svg"
-        "images/HandBrake.svg"
+        "images/WheatherWarning.svg"
+        "images/CruiseControl.svg"
         "images/long.svg"
         "images/Fuel.svg"
-        "images/LeftSignal.svg"
-        "images/CruiseControl.svg"
-        "images/batteryWarning.svg"
-        "images/WheatherWarning.svg"
+        "images/HandBrake.svg"
 )
 
 
