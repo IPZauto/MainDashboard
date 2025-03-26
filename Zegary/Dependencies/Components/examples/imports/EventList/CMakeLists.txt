@@ -3,9 +3,9 @@
 
 
 
-qt_add_library(components STATIC)
-qt6_add_qml_module(components
-    URI "components"
+qt_add_library(EventList STATIC)
+qt6_add_qml_module(EventList
+    URI "EventList"
     VERSION 1.0
     RESOURCE_PREFIX "/qt/qml"
 )
