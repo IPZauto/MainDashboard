@@ -15,8 +15,12 @@ Rectangle {
     id: tlo
     width: 550
     height: 550
+    color: "#151414"
 
-    color: styl.color
+    PulsatingBox{
+        anchors.fill: parent
+    }
+
     states: [
         State {
             name: "clicked"
@@ -30,7 +34,7 @@ Rectangle {
         width: 450
         height: 450
         begin: -150
-        strokeColor: "#797979"
+        strokeColor: "#e8e8e8"
         capStyle: 32
         strokeWidth: 15
         end: 0
@@ -71,7 +75,7 @@ Rectangle {
         y: 215
         width: 140
         height: 120
-        color: "#79797979"
+        color: "#e8e8e8"
         text: backend.speed.toString()
         font.pixelSize: 90
         horizontalAlignment: Text.AlignHCenter
@@ -86,7 +90,7 @@ Rectangle {
         y: 280
         width: 140
         height: 120
-        color: "#79797979"
+        color: "#e8e8e8"
         text: "km/h"
         font.pixelSize: 50
         horizontalAlignment: Text.AlignHCenter
@@ -122,7 +126,7 @@ Rectangle {
 
                 GradientStop {
                     position: 1
-                    color: "#797979"
+                    color: "#e8e8e8"
                 }
             }
             strokeWidth: 0
@@ -154,7 +158,7 @@ Rectangle {
             width: 128
             height: 46
             visible: backend.csOn
-            color: "#79797979"
+            color: "#e8e8e8"
             text: backend.csSpeed.toString()
             font.pixelSize: 50
             horizontalAlignment: Text.AlignHCenter

@@ -39,6 +39,9 @@ int main(int argc, char *argv[])
     engine.addImportPath(":/");
     engine.load(url);
 
+    styl.setPulseActive(true);
+
+
     if (engine.rootObjects().isEmpty())
         return -1;
 

@@ -1,6 +1,6 @@
 #include "style.h"
 
-Style::Style(QObject *parent, QColor color): QObject{parent}, m_color{color} {}
+Style::Style(QObject *parent, QColor color): QObject{parent}, m_color{color} { m_pulse=false;}
 
 void Style::setColor(const QColor color){
     if (m_color==color) return;
@@ -10,9 +10,12 @@ void Style::setColor(const QColor color){
 
 QColor Style::color() const { return m_color; }
 
+bool Style::pulseActive() const {return m_pulse;}
+
 void Style::updateColor(const QColor color){
     setColor(color);
 }
+
 
 QColor Style::colorUpdate(const int fatigue, const int timeOfDay){
     // to do
@@ -25,4 +28,10 @@ void Style::setFatigue(const int fatigue){
 
 void Style::setTimeOfDay(const int timeOfDay){
     m_timeOfDay = timeOfDay;
+}
+
+void Style::setPulseActive(const bool pa){
+    if (m_pulse==pa) return;
+    m_pulse = pa;
+    emit pulseActiveChanged();
 }

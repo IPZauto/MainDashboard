@@ -8,8 +8,8 @@
 #include <QGuiApplication>
 #include "qqmlextensionplugin.h"
 
-Q_IMPORT_QML_PLUGIN(ZegaryContentPlugin)
 Q_IMPORT_QML_PLUGIN(ZegaryPlugin)
+Q_IMPORT_QML_PLUGIN(ZegaryContentPlugin)
 
 const char mainQmlFile[] = "qrc:/qt/qml/ZegaryContent/App.qml";
 

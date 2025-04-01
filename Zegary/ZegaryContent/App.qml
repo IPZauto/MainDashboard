@@ -13,7 +13,7 @@ Window {
     title: "Zegary"
 
     property bool batteryLow: true
-    color: styl.color
+    color: "#151414"
 
     property string serverUrl: ""
 
@@ -50,6 +50,10 @@ Window {
 
     Component.onCompleted:{
         serverIdPopUp.open();
+    }
+
+    PulsatingBox{
+        anchors.fill: parent
     }
 
     ZegarLeft {
