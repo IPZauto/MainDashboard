@@ -13,11 +13,11 @@ import QtQuick.Shapes 1.0
 Rectangle {
     property string messageTextSrc: "Bad wheather\n slow down"
     //property string messageTextSrc: ""
-    //property string messageIconSrc: "images/WheatherWarning.svg"
-    property string messageIconSrc: ""
+    property string messageIconSrc: "images/WheatherWarning.svg"
+    //property string messageIconSrc: ""
     property int m_duration: 250
     id: root
-    color: styl.color
+    color: "#151414"
     width: 800
     height: 550
 

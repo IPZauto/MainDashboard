@@ -15,8 +15,10 @@ Rectangle {
     id: tlo
     width: 550
     height: 550
-    color: styl.color
-
+    color: "#151414"
+    PulsatingBox{
+        anchors.fill: parent
+    }
     states: [
         State {
             name: "clicked"
@@ -29,7 +31,7 @@ Rectangle {
         y: 50
         width: 450
         height: 450
-        strokeColor: "#797979"
+        strokeColor: "#e8e8e8"
         capStyle: 32
         strokeWidth: 15
         end: 150
@@ -68,7 +70,7 @@ Rectangle {
         y: 215
         width: 140
         height: 120
-        color: "#79797979"
+        color: "#e8e8e8"
         text: ((backend.engineRPM - backend.engineRPM % 1000) / 1000).toString()
         font.pixelSize: 90
         horizontalAlignment: Text.AlignHCenter
@@ -83,7 +85,7 @@ Rectangle {
         y: 280
         width: 140
         height: 120
-        color: "#79797979"
+        color: "#e8e8e8"
         text: "RPM"
         font.pixelSize: 50
         horizontalAlignment: Text.AlignHCenter
@@ -98,7 +100,7 @@ Rectangle {
         y: 320
         width: 140
         height: 120
-        color: "#79797979"
+        color: "#e8e8e8"
         text: "1000x"
         font.pixelSize: 20
         horizontalAlignment: Text.AlignHCenter
@@ -134,7 +136,7 @@ Rectangle {
 
                 GradientStop {
                     position: 1
-                    color: "#797979"
+                    color: "#e8e8e8"
                 }
             }
             strokeWidth: 0
@@ -150,7 +152,7 @@ Rectangle {
         width: 100
         height: 80
         text: backend.gear
-        color: "#959595"
+        color: "#e8e8e8"
         font.pixelSize: 60
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -164,7 +166,7 @@ Rectangle {
         anchors.left: gear.left
         width: 100
         height: 50
-        color: "#79797979"
+        color: "#e8e8e8"
         text: "gear"
         font.pixelSize: 30
         horizontalAlignment: Text.AlignHCenter

@@ -11,13 +11,15 @@ class Style : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged FINAL)
+    Q_PROPERTY(bool pulseActive READ pulseActive WRITE setPulseActive NOTIFY pulseActiveChanged FINAL)
 public:
-    explicit Style(QObject* parent=nullptr, QColor color = "#151414");
+    explicit Style(QObject* parent=nullptr, QColor color = "#ff12a8");
 
     //setter
     void setColor(const QColor);
     void setFatigue(const int);
     void setTimeOfDay(const int);
+    void setPulseActive(const bool);
     //getter
     QColor color() const;
 
@@ -26,8 +28,11 @@ public:
     int fatigue() const;
 
     int timeOfDay() const;
+
+    bool pulseActive() const;
 signals:
     void colorChanged();
+    void pulseActiveChanged();
 
 public slots:
     void updateColor(const QColor color);
@@ -39,6 +44,8 @@ private:
     int m_fatigue;
 
     int m_timeOfDay;
+
+    bool m_pulse;
 };
 
 #endif // STYLE_H
