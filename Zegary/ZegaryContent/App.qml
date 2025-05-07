@@ -6,11 +6,13 @@ import QtQuick.Controls
 import Zegary
 
 Window {
+    id: mainWindow
     width: 1920
     height: 550
 
     visible: true
     title: "Zegary"
+
 
     property bool batteryLow: true
     color: "#151414"
@@ -41,6 +43,9 @@ Window {
         onAccepted: {
             serverUrl=serverUrlInput.text;
             network.url = serverUrl;
+            mainWindow.visibility = Window.FullScreen
+            mainWindow.flags = Qt.Window | Qt.FramelessWindowHint // Remove frame
+
         }
 
         onRejected: {

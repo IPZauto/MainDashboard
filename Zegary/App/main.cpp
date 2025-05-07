@@ -38,8 +38,17 @@ int main(int argc, char *argv[])
     engine.addImportPath(QCoreApplication::applicationDirPath() + "/qml");
     engine.addImportPath(":/");
     engine.load(url);
+    backend.setBlinkerLeftActive(true);
+    backend.setBlinkerRightActive(true);
+    backend.setBatteryVoltageWarningOn(true);
+    backend.setFuelWarningOn(true);
+    backend.setCsOn(true);
+    backend.setCsSpeed(40);
+    backend.setSpeed(40);
+    backend.setRpm(2500);
+    backend.setGear(4);
+    backend.setLightsOn(true);
 
-    styl.setPulseActive(true);
 
 
     if (engine.rootObjects().isEmpty())

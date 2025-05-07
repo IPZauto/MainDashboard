@@ -85,7 +85,7 @@ public:
 
     void setSpeed(const int);
 
-    void setRpm(const int);
+    void setRpm(const float);
 
     void setMaxRpm(const int);
 
@@ -118,7 +118,7 @@ public:
     QString date() const;
 
     int speed() const;
-    int rpm() const;
+    float rpm() const;
     int maxRpm() const;
     int gear() const;
     bool fuelWarningOn() const;
@@ -163,7 +163,7 @@ private:
     struct Truck{
         int speed;        // truck speed
 
-        int engineRPM;    // truck RPM
+        float engineRPM;    // truck RPM
 
         int engineRPMmax;
 

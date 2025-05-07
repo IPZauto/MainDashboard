@@ -35,7 +35,7 @@ void Game::setSpeed(const int speed){
     emit speedChanged();
 }
 
-void Game::setRpm(const int rpm){
+void Game::setRpm(const float rpm){
     if (Truck.engineRPM==rpm) return;
     Truck.engineRPM=rpm;
     emit rpmChanged();
@@ -121,7 +121,7 @@ QString Game::date() const {return this->GameInfo.date;}
 
 int Game::speed() const {return this->Truck.speed;}
 
-int Game::rpm() const {return this->Truck.engineRPM;}
+float Game::rpm() const {return this->Truck.engineRPM;}
 
 int Game::maxRpm() const {return this->Truck.engineRPMmax;}
 

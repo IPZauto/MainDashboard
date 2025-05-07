@@ -18,6 +18,7 @@ NetworkData::~NetworkData(){
     delete m_manager;
 }
 
+// fetches data from the telemetry server
 void NetworkData::fetchTelemetryData(){
 
     QNetworkRequest request(m_url);
@@ -59,7 +60,7 @@ void NetworkData::fetchTelemetryData(){
                     m_gameData->setGear(truck["gear"].toInt());
                     m_gameData->setBatteryVoltageWarningOn(truck["batteryVoltageWarningOn"].toBool());
                     m_gameData->setCsOn(truck["cruiseControlOn"].toBool());
-                    m_gameData->setCsSpeed(truck["cruiseControlSpeed"].toInt());
+                    m_gameData->setCsSpeed(truck["cruiseControlSpeed"].toDouble());
 
                     //extract truck placement
                     QJsonObject placement = truck["placement"].toObject();

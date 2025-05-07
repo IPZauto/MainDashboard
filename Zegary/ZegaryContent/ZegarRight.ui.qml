@@ -16,6 +16,8 @@ Rectangle {
     width: 550
     height: 550
     color: "#151414"
+    property int pulseDuration: 1500
+    property int stopDuration: 2000
     PulsatingBox{
         anchors.fill: parent
     }
@@ -36,6 +38,28 @@ Rectangle {
         strokeWidth: 15
         end: 150
         fillColor: "#00000000"
+        SequentialAnimation on strokeColor {
+            running: styl.pulseActive
+            loops: Animation.Infinite
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.stopDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: styl.textColor
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+        }
     }
 
     ArcItem {
@@ -71,12 +95,34 @@ Rectangle {
         width: 140
         height: 120
         color: "#e8e8e8"
-        text: ((backend.engineRPM - backend.engineRPM % 1000) / 1000).toString()
+        text: (backend.engineRPM / 100).toString()
         font.pixelSize: 90
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         font.family: "Arial"
         font.bold: false
+        SequentialAnimation on color {
+            running: styl.pulseActive
+            loops: Animation.Infinite
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.stopDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: styl.textColor
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+        }
     }
 
     Text {
@@ -92,6 +138,28 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         font.family: "Arial"
         font.bold: false
+        SequentialAnimation on color {
+            running: styl.pulseActive
+            loops: Animation.Infinite
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.stopDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: styl.textColor
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+        }
     }
 
     Text {
@@ -101,12 +169,34 @@ Rectangle {
         width: 140
         height: 120
         color: "#e8e8e8"
-        text: "1000x"
+        text: "100x"
         font.pixelSize: 20
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         font.family: "Arial"
         font.bold: false
+        SequentialAnimation on color {
+            running: styl.pulseActive
+            loops: Animation.Infinite
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.stopDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: styl.textColor
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+        }
     }
 
     GroupItem {
@@ -158,6 +248,28 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         font.family: "Arial"
         font.bold: false
+        SequentialAnimation on color {
+            running: styl.pulseActive
+            loops: Animation.Infinite
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.stopDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: styl.textColor
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+        }
     }
 
     Text {
@@ -173,6 +285,28 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter
         font.family: "Arial"
         font.bold: false
+        SequentialAnimation on color {
+            running: styl.pulseActive
+            loops: Animation.Infinite
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.stopDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: "#e8e8e8"
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+            ColorAnimation {
+                to: styl.textColor
+                duration: tlo.pulseDuration
+                easing.type: Easing.InOutQuad
+            }
+
+        }
     }
 }
 

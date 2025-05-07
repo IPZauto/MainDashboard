@@ -28,8 +28,4 @@ Rectangle {
             duration: root.pulseDuration
         }
     }
-
-    // Start/stop control
-    function startPulse() { isPulsing = true; }
-    function stopPulse() { isPulsing = false; opacity = minOpacity; }
 }
