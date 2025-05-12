@@ -7,8 +7,8 @@ Style::Style(QObject *parent, QColor color, QColor textColor): QObject{parent}, 
     connect(m_timer, &QTimer::timeout, this, &Style::increaseFatigue);
     connect(this , &Style::fatigueChanged, this, &Style::updateColor);
 
-
-    m_timer->start(FATIGUETIME);
+    m_timerInterval = FATIGUETIME;
+    // m_timer->start(m_timerInterval);
 }
 
 //increases Fatigue with check
@@ -61,7 +61,12 @@ QColor Style::colorUpdate(const int fatigue, const int timeOfDay, const int expo
 }
 
 void Style::setFatigue(const int fatigue){
-    m_fatigue = fatigue;
+    if (fatigue <= sleepy && fatigue >= fresh)
+    {
+        m_fatigue = fatigue;
+        emit fatigueChanged();
+    }
+    return;
 }
 
 void Style::setTimeOfDay(const int timeOfDay){
@@ -74,4 +79,21 @@ void Style::setPulseActive(const bool pa){
     m_pulse = pa;
     emit pulseActiveChanged();
 }
+
+void Style::setInterval(int time){
+    m_timer->setInterval(time);
+    emit intervalChanged();
+}
+
+void Style::start(){
+    m_timer->start(m_timerInterval);
+    emit timerRunningChanged();
+}
+
+void Style::stop(){
+    m_timer->stop();
+    emit timerRunningChanged();
+}
+
+bool Style::isTimerRunning() const{return m_timer->isActive();}
 

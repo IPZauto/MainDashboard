@@ -11,9 +11,9 @@ import QtQuick.Controls
 import QtQuick.Shapes 1.0
 
 Rectangle {
-    property string messageTextSrc: "Bad wheather\n slow down"
+    //property string messageTextSrc: "Bad wheather\n slow down"
     //property string messageTextSrc: ""
-    property string messageIconSrc: "images/WheatherWarning.svg"
+    //property string messageIconSrc: "images/WheatherWarning.svg"
     //property string messageIconSrc: ""
     property int m_duration: 250
     id: root
@@ -138,16 +138,16 @@ Rectangle {
             spacing: 15
             Image {
                 id: messageIcon
-                source: messageIconSrc // later backend contorl
-                width: messageIconSrc !== "" ? 64 : 0
-                height: messageIconSrc !== "" ? 64 : 0
-                visible: messageIconSrc !== ""
+                source: message.icon // later backend contorl
+                width: message.icon !== "" ? 64 : 0
+                height: message.icon !== "" ? 64 : 0
+                visible: message.icon !== ""
                 fillMode: Image.PreserveAspectFit
                 anchors.horizontalCenter: parent.horizontalCenter
             }
             Text {
                 id: messageText
-                text: messageTextSrc //later backend
+                text: message.message //later backend
                 color: "white"
                 font.pixelSize: 22
                 font.bold: true

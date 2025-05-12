@@ -13,7 +13,6 @@ Window {
     visible: true
     title: "Zegary"
 
-
     property bool batteryLow: true
     color: "#151414"
 
@@ -74,6 +73,30 @@ Window {
         y: 0
     }
 
+    Item{
+        anchors.fill: parent
+        focus: true
+
+        Keys.onPressed: {
+                if (event.key === Qt.Key_Space) {
+                    styl.stop();
+                    event.accepted = true;
+                }
+                if (event.key === Qt.Key_S){
+                    styl.start();
+                    event.accepted= true;
+                }
+                if (event.key === Qt.Key_Up){
+                    styl.increaseFatigue();
+                    event.accepted= true;
+                }
+                if (event.key === Qt.Key_Dwon){
+                    styl.decreaseFaitgue();
+                    event.accepted= true;
+                }
+            }
+
+    }
 
 }
 

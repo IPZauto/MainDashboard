@@ -9,6 +9,7 @@
 #include "game.h"
 #include "networkdata.h"
 #include "style.h"
+#include "messagewindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -23,9 +24,12 @@ int main(int argc, char *argv[])
 
     Style styl;
 
+    MessageWindow message;
+
     engine.rootContext()->setContextProperty("backend", &backend);
     engine.rootContext()->setContextProperty("styl", &styl);
     engine.rootContext()->setContextProperty("network",&network);
+    engine.rootContext()->setContextProperty("message", &message);
 
     const QUrl url(mainQmlFile);
     QObject::connect(
@@ -50,7 +54,7 @@ int main(int argc, char *argv[])
     backend.setLightsOn(true);
 
 
-
+    message.setAlert(Alerts::wheater);
     if (engine.rootObjects().isEmpty())
         return -1;
 

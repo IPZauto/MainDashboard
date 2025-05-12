@@ -24,6 +24,8 @@ qt_add_executable(${CMAKE_PROJECT_NAME}
     networkdata.h networkdata.cpp
     game.h game.cpp
     style.h style.cpp
+    messagewindow.h messagewindow.cpp
+
 )
 qt_add_resources(${CMAKE_PROJECT_NAME} "configuration"
     PREFIX "/"

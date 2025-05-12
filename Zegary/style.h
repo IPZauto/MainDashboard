@@ -42,11 +42,21 @@ public:
     bool pulseActive() const;
 
     QColor textColor() const;
+    //changes timer interval of sending a signal to perform an action
+    void setInterval(int time);
+    // starts the timer
+    void start();
+    // stops the timer
+    void stop();
+    // return state of a timer (active or not)
+    bool isTimerRunning()const;
 signals:
     void colorChanged();
     void pulseActiveChanged();
     void textColorChanged();
     void fatigueChanged();
+    void timerRunningChanged();
+    void intervalChanged();
 public slots:
     void updateColor();
     void increaseFatigue();
@@ -65,6 +75,7 @@ private:
 
     QTimer* m_timer;
 
+    int m_timerInterval;
 };
 
 #endif // STYLE_H
