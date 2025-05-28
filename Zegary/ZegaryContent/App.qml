@@ -78,24 +78,23 @@ Window {
         focus: true
 
         Keys.onPressed: {
-                if (event.key === Qt.Key_Space) {
-                    styl.stop();
-                    event.accepted = true;
-                }
-                if (event.key === Qt.Key_S){
-                    styl.start();
-                    event.accepted= true;
-                }
-                if (event.key === Qt.Key_Up){
-                    styl.increaseFatigue();
-                    event.accepted= true;
-                }
-                if (event.key === Qt.Key_Dwon){
-                    styl.decreaseFaitgue();
-                    event.accepted= true;
-                }
+            if (event.key === Qt.Key_Space) {
+                styl.stop();
+                event.accepted = true;
             }
-
+            if (event.key === Qt.Key_S) {
+                styl.start();
+                event.accepted = true;
+            }
+            if (event.key === Qt.Key_Up) {
+                styl.increaseFatigue();
+                event.accepted = true;
+            }
+            if (event.key === Qt.Key_Down) {
+                styl.decreaseFatigue();  // Also fixed typo in method name (Faitgue -> Fatigue)
+                event.accepted = true;
+            }
+        }
     }
 
 }

@@ -56,3 +56,7 @@ void MessageWindow::startTheTimer(){
 void MessageWindow::stopTheTimer(){
     alertT->stop();
 }
+
+void MessageWindow::damagedTruck(){
+    setAlert(Alerts::damage);
+}

@@ -62,6 +62,8 @@ void NetworkData::fetchTelemetryData(){
                     m_gameData->setCsOn(truck["cruiseControlOn"].toBool());
                     m_gameData->setCsSpeed(truck["cruiseControlSpeed"].toDouble());
 
+                    //extract truck damage
+
                     //extract truck placement
                     QJsonObject placement = truck["placement"].toObject();
                     m_gameData->setPlacement(

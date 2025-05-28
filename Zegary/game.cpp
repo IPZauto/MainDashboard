@@ -111,6 +111,43 @@ void Game::setCsSpeed(const int speed){
     emit csSpeedChanged();
 }
 
+void Game::setEngineWear(const float dmg){
+    if (Damage.engineWear==dmg) return;
+    Damage.engineWear = dmg;
+    emit damageChanged();
+}
+
+void Game::setTransmissionWear(const float dmg){
+    if (Damage.transmissionWear==dmg) return;
+    Damage.transmissionWear = dmg;
+    emit damageChanged();
+}
+
+void Game::setCabinWear(const float dmg){
+    if (Damage.cabinWear==dmg) return;
+    Damage.cabinWear = dmg;
+    emit damageChanged();
+}
+
+
+void Game::setChassisWear(const float dmg){
+    if (Damage.chassisWear==dmg) return;
+    Damage.chassisWear = dmg;
+    emit damageChanged();
+}
+
+void Game::setWheelsWear(const float dmg){
+    if (Damage.wheelsWear==dmg) return;
+    Damage.chassisWear = dmg;
+    emit damageChanged();
+}
+
+void Game::calculateWear(){
+    Damage.averageWear = 4*Damage.engineWear + 2 * Damage.transmissionWear
+                         + Damage.cabinWear + 3 * Damage.chassisWear + 0.8 * Damage.wheelsWear;
+    if(Damage.averageWear>DAMAGE_TRESHOLD) emit TruckDamaged();
+}
+
 Placement Game::placement() const {return this->GameInfo.placement;}
 
 bool Game::conneted() const {return this->GameInfo.connected;}

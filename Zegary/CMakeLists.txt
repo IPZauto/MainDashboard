@@ -16,9 +16,8 @@ set(QML_IMPORT_PATH ${QT_QML_OUTPUT_DIRECTORY}
     FORCE
 )
 
-find_package(Qt6 6.7 REQUIRED COMPONENTS Core Gui Qml Quick)
+find_package(Qt6 6.7 REQUIRED COMPONENTS Core Gui Qml Quick  WebSockets)  # dodałem WebSockets w razie czego won
 qt_standard_project_setup()
-
 
 qt_add_executable(${CMAKE_PROJECT_NAME}
     networkdata.h networkdata.cpp
@@ -26,11 +25,26 @@ qt_add_executable(${CMAKE_PROJECT_NAME}
     style.h style.cpp
     messagewindow.h messagewindow.cpp
 
+    resources.qrc
+    PlatformaSerwer.js
+    platformserver.h platformserver.cpp
 )
+
+target_link_libraries(${CMAKE_PROJECT_NAME}
+    PRIVATE
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Qml
+    Qt6::Quick
+    Qt6::WebSockets
+)
+
 qt_add_resources(${CMAKE_PROJECT_NAME} "configuration"
     PREFIX "/"
     FILES
-        qtquickcontrols2.conf)
+        qtquickcontrols2.conf
+        config/config.json
+    )
 
 include(qds)
 

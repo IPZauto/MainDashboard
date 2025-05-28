@@ -30,10 +30,12 @@ signals:
     void alertChanged();
     void alertReseted();
 
-private slots:
+public slots:
     void startTheTimer();
     void stopTheTimer();
     void resetAlert();
+    void damagedTruck();
+
 private:
     QString m_message;
     QString m_iconSrc;

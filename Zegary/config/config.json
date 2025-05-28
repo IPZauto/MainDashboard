@@ -1,0 +1,32 @@
+{
+    "setup": {
+        "config": false,
+        "timers": 5,
+        "durations": [
+            10,
+            10,
+            10,
+            10,
+            10
+        ],
+        "bcolors": [
+            "#FF0000",
+            "#0000FF",
+            "#800080"
+        ],
+        "tcolors": [
+            "#00FF00",
+            "#FFA500",
+            "#FFFF00"
+        ],
+        "rbcolors": "#008080",
+        "rtcolors": "#FF4500",
+        "fatigue": [
+            0,
+            1,
+            2,
+            -1,
+            3
+        ]
+    }
+}

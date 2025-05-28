@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QString>
 
+#define DAMAGE_TRESHOLD 0.5
+
 struct Placement
 {
     float x;        // X coordinate in the world
@@ -110,6 +112,16 @@ public:
     void setCsSpeed(const int);
 
     void setCsOn(const bool);
+
+    void setEngineWear(const float);
+
+    void setChassisWear(const float);
+
+    void setTransmissionWear(const float);
+
+    void setCabinWear(const float);
+
+    void setWheelsWear(const float);
     // gettery
 
     Placement placement() const;
@@ -147,8 +159,13 @@ signals:
     void batteryVoltageWarningOnChanged();
     void csSpeedChanged();
     void csOnChanged();
+    void damageChanged();
+    void TruckDamaged();
 
+private slots:
+    void calculateWear();
 private:
+
     struct GameInfo{
         Placement placement;
 
@@ -189,6 +206,15 @@ private:
 
     }Truck;
 
+
+    struct Damage{
+        float engineWear;
+        float transmissionWear;
+        float cabinWear;
+        float chassisWear;
+        float wheelsWear;
+        float averageWear;
+    }Damage;
 };
 
 

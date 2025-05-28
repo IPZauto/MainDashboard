@@ -1,14 +1,23 @@
 #include "style.h"
 
-Style::Style(QObject *parent, QColor color, QColor textColor): QObject{parent}, m_color{color}, m_textColor{textColor} {
+Style::Style(QObject* parent, bool config,
+             QColor color, QColor textColor, QVector<QColor> b_colors, QVector<QColor> t_colors,
+             QColor r_color, QColor r_text,
+             QVector<int> durations , QVector<int> sequence , int no_timers):
+    QObject{parent}, m_config{config},
+    m_color{color}, m_textColor{textColor},m_bColors{b_colors},m_tColors{t_colors},
+    m_no_timers{no_timers}, m_durations{durations}, m_sequence{sequence}
+{
     m_pulse=false;
     m_fatigue = 0;
     m_timer = new QTimer(this);
-    connect(m_timer, &QTimer::timeout, this, &Style::increaseFatigue);
+    connect(m_timer, &QTimer::timeout, this, &Style::updateSequence);
     connect(this , &Style::fatigueChanged, this, &Style::updateColor);
-
-    m_timerInterval = FATIGUETIME;
-    // m_timer->start(m_timerInterval);
+    if (config){
+        m_curent_timer = 0;
+        m_timer->setInterval(durations[m_curent_timer] * 1000);
+        m_timer->start();
+    }
 }
 
 //increases Fatigue with check
@@ -19,7 +28,7 @@ void Style::increaseFatigue(){
     emit fatigueChanged();
 }
 //decreases Fatigue with check
-void Style::decreaseFtigue(){
+void Style::decreaseFatigue(){
     if(m_fatigue==fresh) {
         if(m_pulse) setPulseActive(false);
         return;
@@ -49,21 +58,21 @@ bool Style::pulseActive() const {return m_pulse;}
 
 //updates color after fatigue has changed
 void Style::updateColor(){
-    setColor(BACKGROUNDCOLORS[m_fatigue-1]);
-    setTextColor(TEXTCOLORS[m_fatigue-1
-    ]);
-}
-
-
-QColor Style::colorUpdate(const int fatigue, const int timeOfDay, const int expositionTime){
-    // to do
-    return QColor("red");
+    if (m_fatigue==rapid){
+        setColor(m_rapid_bColor);
+        setTextColor(m_rapid_textColor);
+    }
+    else{
+        setColor(m_bColors[m_fatigue-1]);
+        setTextColor(m_tColors[m_fatigue-1]);
+    }
 }
 
 void Style::setFatigue(const int fatigue){
-    if (fatigue <= sleepy && fatigue >= fresh)
+    if ( fatigue == rapid || fatigue <= sleepy && fatigue >= fresh)
     {
         m_fatigue = fatigue;
+        if ((fatigue == rapid||fatigue > fresh) && !m_pulse) setPulseActive(true);
         emit fatigueChanged();
     }
     return;
@@ -97,3 +106,13 @@ void Style::stop(){
 
 bool Style::isTimerRunning() const{return m_timer->isActive();}
 
+void Style::updateSequence() {
+    m_curent_timer ++;
+    if(m_curent_timer>=m_no_timers){
+        m_timer->stop();
+        return;
+    }
+    setFatigue(m_sequence[m_curent_timer]);
+    m_timer->setInterval(m_durations[m_curent_timer] * 1000);
+    m_timer->start();
+}
