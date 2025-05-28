@@ -14,6 +14,7 @@
 #include "networkdata.h"
 #include "style.h"
 #include "messagewindow.h"
+#include "platformserver.h"
 
 const QString dConfigPath = ":/config/config.json";
 
@@ -108,6 +109,9 @@ int main(int argc, char *argv[])
     }
 
     MessageWindow message;
+
+    PlatformServer ps(&app, styl);
+    ps.connectToServer(Surl);
 
     QObject::connect(&backend, &Game::TruckDamaged, &message, &MessageWindow::damagedTruck);
 
