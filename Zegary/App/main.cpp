@@ -113,6 +113,8 @@ int main(int argc, char *argv[])
     PlatformServer ps(&app, styl);
     ps.connectToServer(Surl);
 
+    qDebug() << "i am here";
+
     QObject::connect(&backend, &Game::TruckDamaged, &message, &MessageWindow::damagedTruck);
 
     engine.rootContext()->setContextProperty("backend", &backend);

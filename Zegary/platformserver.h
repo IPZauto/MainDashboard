@@ -7,7 +7,7 @@
 
 #include "style.h"
 
-const QUrl Surl= QUrl("192.168.56.1:8080");
+const QUrl Surl= QUrl("ws://192.168.56.1:8080");
 
 class PlatformServer : public QObject {
     Q_OBJECT

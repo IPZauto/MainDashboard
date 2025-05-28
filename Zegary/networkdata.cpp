@@ -78,10 +78,10 @@ void NetworkData::fetchTelemetryData(){
 
 
             }else{
-                qDebug()<<"Failed to parse JSON.";
+              //  qDebug()<<"Failed to parse JSON.";
             }
         }else{
-            qDebug() << "Error:" <<reply->errorString();
+            //qDebug() << "Error:" <<reply->errorString();
         }
         reply->deleteLater();
     });
