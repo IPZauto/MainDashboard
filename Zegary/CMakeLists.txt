@@ -26,7 +26,7 @@ qt_add_executable(${CMAKE_PROJECT_NAME}
     messagewindow.h messagewindow.cpp
 
     resources.qrc
-    PlatformaSerwer.js
+
     platformserver.h platformserver.cpp
 )
 
