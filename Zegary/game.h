@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QString>
+#include <QDateTime>
 
 #define DAMAGE_TRESHOLD 0.5
 
@@ -68,6 +69,7 @@ public:
         setBatteryVoltageWarningOn(false);
         setCsSpeed(0);
         setCsOn(false);
+        tod = 0;
     };
 
     // settery
@@ -161,10 +163,12 @@ signals:
     void csOnChanged();
     void damageChanged();
     void TruckDamaged();
+    void timeOfDayChanged(int tod);
 
 private slots:
     void calculateWear();
 private:
+    int tod;
 
     struct GameInfo{
         Placement placement;
@@ -174,7 +178,6 @@ private:
         bool paused;        // true if game is currently paused, false otherwise
 
         QString date;
-
     }GameInfo;
 
     struct Truck{

@@ -47,6 +47,10 @@ int main(int argc, char *argv[])
     QVector<int> durations;
     QVector<QColor> bcolors;
     QVector<QColor> tcolors;
+    QVector<QColor> bcolorsE;
+    QVector<QColor> tcolorsE;
+    QVector<QColor> bcolorsN;
+    QVector<QColor> tcolorsN;
     QColor rapidBColors;
     QColor rapidTCOlors;
     QVector<int> fatigue;
@@ -102,18 +106,20 @@ int main(int argc, char *argv[])
     NetworkData network(&app,TELEMETREY_URL,&backend);
 
     Style* styl;
-    if(config){
-        styl = new Style(&app,config, b_default, t_default, bcolors, tcolors, rapidBColors, rapidTCOlors, durations, fatigue, timers);
-    }else{
-        styl = new Style(&app);
-    }
-
+    //to do  change config file
+    // if(config){
+    //     styl = new Style(&app,config, b_default, t_default, bcolors, tcolors, rapidBColors, rapidTCOlors, durations, fatigue, timers);
+    // }else{
+    //     styl = new Style(&app);
+    // }
+    styl = new Style(&app);
     MessageWindow message;
 
     PlatformServer ps(&app, styl);
     ps.connectToServer(Surl);
 
     QObject::connect(&backend, &Game::TruckDamaged, &message, &MessageWindow::damagedTruck);
+    QObject::connect(&backend, &Game::timeOfDayChanged, styl, &Style::updateTimeOfDay);
 
     engine.rootContext()->setContextProperty("backend", &backend);
     engine.rootContext()->setContextProperty("styl", styl);

@@ -11,13 +11,22 @@
 //konfiguracja timera z pliku
 
 enum Fatigue{rapid =-1,fresh=0,slightly_tired,tired,sleepy}; //dodać rapid
-enum TimeOfDay{morning,day,evening,night};
+enum TimeOfDay{day=0,evening,night};
 
-const QColor RAPID_BCK = QColor("green");
-const QColor RAPID_TXT = QColor("blue");
+const QColor RAPID_BCKD = QColor("white");
+const QColor RAPID_BCKE = QColor("gray");
+const QColor RAPID_BCKN = QColor("black");
+const QColor RAPID_TXTD = QColor("black");
+const QColor RAPID_TXTE = QColor("magenta");
+const QColor RAPID_TXTN = QColor("white");
 
-const QVector<QColor> BACKGROUNDCOLORS = {QColor("#f22245"),QColor("#1cfc54"),QColor("#717ef5")};
-const QVector<QColor> TEXTCOLORS = {QColor("yellow"), QColor("red"), QColor("magenta")};
+const QVector<QColor> BACKGROUNDCOLORSD = {QColor("white"),QColor("yellow"),QColor("yellow")};
+const QVector<QColor> BACKGROUNDCOLORSE = {QColor("gray"), QColor("gray"),  QColor("gray")};
+const QVector<QColor> BACKGROUNDCOLORSN = {QColor("black"),QColor("black"), QColor("blue")};
+
+const QVector<QColor> TEXTCOLORSD = {QColor("blue"),  QColor("blue"),   QColor("black")};
+const QVector<QColor> TEXTCOLORSE = {QColor("white"), QColor("yellow"), QColor("green")};
+const QVector<QColor> TEXTCOLORSN = {QColor("green"), QColor("yellow"), QColor("yellow")};
 
 const QColor b_default = "#ff12a8";
 const QColor t_default = "#ebe534";
@@ -31,8 +40,13 @@ class Style : public QObject
 public:
     explicit Style(
         QObject* parent=nullptr, bool config = false,
-        QColor color = b_default, QColor textColor = t_default, QVector<QColor> b_colors = BACKGROUNDCOLORS, QVector<QColor> t_colors = TEXTCOLORS,
-        QColor r_color = RAPID_BCK, QColor r_text = RAPID_TXT,
+        QColor color = b_default, QColor textColor = t_default,
+        QVector<QColor> b_colorsD = BACKGROUNDCOLORSD, QVector<QColor> t_colorsD = TEXTCOLORSD,
+        QVector<QColor> b_colorsE = BACKGROUNDCOLORSE, QVector<QColor> t_colorsE = TEXTCOLORSE,
+        QVector<QColor> b_colorsN = BACKGROUNDCOLORSN, QVector<QColor> t_colorsN = TEXTCOLORSN,
+        QColor r_colorD = RAPID_BCKD, QColor r_textD = RAPID_TXTD,
+        QColor r_colorE = RAPID_BCKE, QColor r_textE = RAPID_TXTE,
+        QColor r_colorN = RAPID_BCKN, QColor r_textN = RAPID_TXTN,
         QVector<int> durations = QVector<int>(), QVector<int> sequence = QVector<int>(), int no_timers=0);
 
     //setter
@@ -68,11 +82,13 @@ signals:
     void fatigueChanged();
     void timerRunningChanged();
     void intervalChanged();
+    void timeOfDayChanged();
 public slots:
     void updateColor();
     void increaseFatigue();
     void decreaseFatigue();
     void updateSequence();
+    void updateTimeOfDay(int tod);
 private:
 
     QColor m_color;
@@ -89,13 +105,29 @@ private:
 
     int m_timerInterval;
 
-    QColor m_rapid_bColor;
+    QColor m_rapid_bColorD;
 
-    QColor m_rapid_textColor;
+    QColor m_rapid_textColorD;
 
-    QVector<QColor> m_bColors;
+    QColor m_rapid_bColorE;
 
-    QVector<QColor> m_tColors;
+    QColor m_rapid_textColorE;
+
+    QColor m_rapid_bColorN;
+
+    QColor m_rapid_textColorN;
+
+    QVector<QColor> m_bColorsD;
+
+    QVector<QColor> m_tColorsD;
+
+    QVector<QColor> m_bColorsN;
+
+    QVector<QColor> m_tColorsN;
+
+    QVector<QColor> m_bColorsE;
+
+    QVector<QColor> m_tColorsE;
 
     int m_no_timers;
 
@@ -106,6 +138,8 @@ private:
     QVector<int> m_sequence;
 
     bool m_config;
+
+    int m_tod; //TIME OF DAY
 };
 
 #endif // STYLE_H

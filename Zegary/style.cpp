@@ -1,11 +1,22 @@
 #include "style.h"
 
 Style::Style(QObject* parent, bool config,
-             QColor color, QColor textColor, QVector<QColor> b_colors, QVector<QColor> t_colors,
-             QColor r_color, QColor r_text,
+             QColor color, QColor textColor,
+             QVector<QColor> b_colorsD, QVector<QColor> t_colorsD,
+             QVector<QColor> b_colorsE, QVector<QColor> t_colorsE,
+             QVector<QColor> b_colorsN, QVector<QColor> t_colorsN,
+             QColor r_colorD, QColor r_textD,
+             QColor r_colorE, QColor r_textE,
+             QColor r_colorN, QColor r_textN,
              QVector<int> durations , QVector<int> sequence , int no_timers):
     QObject{parent}, m_config{config},
-    m_color{color}, m_textColor{textColor},m_bColors{b_colors},m_tColors{t_colors},
+    m_color{color}, m_textColor{textColor},
+    m_bColorsD{b_colorsD},m_tColorsD{t_colorsD},
+    m_bColorsE{b_colorsE},m_tColorsE{t_colorsE},
+    m_bColorsN{b_colorsN},m_tColorsN{t_colorsN},
+    m_rapid_bColorD{r_colorD}, m_rapid_textColorD{r_textD},
+    m_rapid_bColorE{r_colorE}, m_rapid_textColorE{r_textE},
+    m_rapid_bColorN{r_colorN}, m_rapid_textColorN{r_textN},
     m_no_timers{no_timers}, m_durations{durations}, m_sequence{sequence}
 {
     m_pulse=false;
@@ -13,11 +24,18 @@ Style::Style(QObject* parent, bool config,
     m_timer = new QTimer(this);
     connect(m_timer, &QTimer::timeout, this, &Style::updateSequence);
     connect(this , &Style::fatigueChanged, this, &Style::updateColor);
+    connect(this, &Style::timeOfDayChanged,this, &Style::updateColor);
     if (config){
         m_curent_timer = 0;
         m_timer->setInterval(durations[m_curent_timer] * 1000);
         m_timer->start();
     }
+    m_tod = 0;
+}
+
+void Style::updateTimeOfDay(int tod){
+    m_tod = tod;
+    emit timeOfDayChanged();
 }
 
 //increases Fatigue with check
@@ -58,13 +76,43 @@ bool Style::pulseActive() const {return m_pulse;}
 
 //updates color after fatigue has changed
 void Style::updateColor(){
+
     if (m_fatigue==rapid){
-        setColor(m_rapid_bColor);
-        setTextColor(m_rapid_textColor);
+        switch (m_tod) {
+        case day:
+            setColor(m_rapid_bColorD);
+            setTextColor(m_rapid_textColorD);
+            break;
+        case evening:
+            setColor(m_rapid_bColorE);
+            setTextColor(m_rapid_textColorE);
+            break;
+        case night:
+            setColor(m_rapid_bColorN);
+            setTextColor(m_rapid_textColorN);
+            break;
+        }
+
     }
     else{
-        setColor(m_bColors[m_fatigue-1]);
-        setTextColor(m_tColors[m_fatigue-1]);
+        switch(m_tod){
+        case day:
+            setColor(m_bColorsD[m_fatigue-1]);
+            setTextColor(m_tColorsD[m_fatigue-1]);
+            break;
+
+        case evening:
+            setColor(m_bColorsE[m_fatigue-1]);
+            setTextColor(m_tColorsE[m_fatigue-1]);
+            break;
+
+        case night:
+            setColor(m_bColorsN[m_fatigue-1]);
+            setTextColor(m_tColorsN[m_fatigue-1]);
+            break;
+        }
+
+
     }
 }
 
