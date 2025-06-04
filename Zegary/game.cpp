@@ -1,5 +1,4 @@
 #include "game.h"
-#include <QString>
 
 void Game::setPlacement(
     const float x,
@@ -27,6 +26,24 @@ void Game::setPaused(const bool paused){
 
 void Game::setDate(const QString date){
     GameInfo.date=date;
+    QDateTime dt = QDateTime::fromString(date, Qt::ISODate);
+    QTime time = dt.time();
+    if (time >= QTime(0,0,0) && time < QTime(6,0,0)){
+        if (tod != 2){
+            tod = 2; //night
+            emit timeOfDayChanged(tod);
+        }
+    }else if(time >= QTime(6, 0, 0) && time < QTime(18, 0, 0)){
+        if (tod != 0){
+            tod = 0; // day
+            emit timeOfDayChanged(tod);
+        }
+    }else{
+        if (tod != 1){
+            tod = 1; // evening
+            emit timeOfDayChanged(tod);
+        }
+    }
 }
 
 void Game::setSpeed(const int speed){
