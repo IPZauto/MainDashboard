@@ -76,7 +76,11 @@ bool Style::pulseActive() const {return m_pulse;}
 
 //updates color after fatigue has changed
 void Style::updateColor(){
-
+    if (m_fatigue==fresh){
+        setColor(b_default);
+        setTextColor(t_default);
+        return;
+    }
     if (m_fatigue==rapid){
         switch (m_tod) {
         case day:

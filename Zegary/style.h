@@ -1,3 +1,8 @@
+/// module responsible for everything connected with the colors side of the screen.
+/// There are 2 ways of operating it:
+/// - web socket connected to procjrct responsible for fatigue increase
+/// - config file (not implemnted yet)
+
 #ifndef STYLE_H
 #define STYLE_H
 
@@ -6,13 +11,16 @@
 #include <QColor>
 #include <QTimer>
 
-#define FATIGUETIME 10000 //10 sek
-
-//konfiguracja timera z pliku
-
-enum Fatigue{rapid =-1,fresh=0,slightly_tired,tired,sleepy}; //dodać rapid
+// enums responsible for driver's fatigue and Time of day used for background and text colors
+enum Fatigue{rapid =-1,fresh=0,slightly_tired,tired,sleepy};
 enum TimeOfDay{day=0,evening,night};
 
+// default colors for rapid fatigue for each time of day.
+// BCK -> background color
+// TXT -> text color
+// D -> day
+// E -> evening
+// N -> night
 const QColor RAPID_BCKD = QColor("white");
 const QColor RAPID_BCKE = QColor("gray");
 const QColor RAPID_BCKN = QColor("black");
@@ -20,20 +28,25 @@ const QColor RAPID_TXTD = QColor("black");
 const QColor RAPID_TXTE = QColor("magenta");
 const QColor RAPID_TXTN = QColor("white");
 
+
+// background colors for fatigues in order excluding fresh and rapid
 const QVector<QColor> BACKGROUNDCOLORSD = {QColor("white"),QColor("yellow"),QColor("yellow")};
 const QVector<QColor> BACKGROUNDCOLORSE = {QColor("gray"), QColor("gray"),  QColor("gray")};
 const QVector<QColor> BACKGROUNDCOLORSN = {QColor("black"),QColor("black"), QColor("blue")};
 
+// text colors for fatigues in order excluding fresh and rapid
 const QVector<QColor> TEXTCOLORSD = {QColor("blue"),  QColor("blue"),   QColor("black")};
 const QVector<QColor> TEXTCOLORSE = {QColor("white"), QColor("yellow"), QColor("green")};
 const QVector<QColor> TEXTCOLORSN = {QColor("green"), QColor("yellow"), QColor("yellow")};
 
-const QColor b_default = "#ff12a8";
-const QColor t_default = "#ebe534";
+// background and text color for fresh state
+const QColor b_default = "#151414";
+const QColor t_default = "#e8e8e8";
 
 class Style : public QObject
 {
     Q_OBJECT
+    // Q_Properties used for communication with QML
     Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged FINAL)
     Q_PROPERTY(bool pulseActive READ pulseActive WRITE setPulseActive NOTIFY pulseActiveChanged FINAL)
     Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor NOTIFY textColorChanged FINAL)
@@ -58,7 +71,7 @@ public:
     //getter
     QColor color() const;
 
-    QColor colorUpdate(const int fatigue,const int timeOfDay, const int expositionTime);
+    // QColor colorUpdate(const int fatigue,const int timeOfDay, const int expositionTime);
 
     int fatigue() const;
 

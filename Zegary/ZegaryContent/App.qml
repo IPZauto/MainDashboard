@@ -17,6 +17,7 @@ Window {
     color: "#151414"
 
     property string serverUrl: ""
+    property string webSocketUrl: ""
 
     Dialog {
         id: serverIdPopUp
@@ -37,14 +38,24 @@ Window {
                 width: parent.width-20
                 placeholderText: "e.g., http://127.0.0.1:25555"
             }
+
+            Text {
+                text: "addres websocket"
+            }
+            TextField {
+                id: webSocketUrlInput
+                width: parent.width-20
+                placeholderText: "e.g., ws://127.0.0.1:8080"
+            }
         }
 
         onAccepted: {
             serverUrl=serverUrlInput.text;
             network.url = serverUrl;
+            webSocketUrl = webSocketUrlInput.text;
+            webSocket.url = webSocketUrl;
             mainWindow.visibility = Window.FullScreen
             mainWindow.flags = Qt.Window | Qt.FramelessWindowHint // Remove frame
-
         }
 
         onRejected: {
@@ -73,29 +84,6 @@ Window {
         y: 0
     }
 
-    Item{
-        anchors.fill: parent
-        focus: true
-
-        Keys.onPressed: {
-            if (event.key === Qt.Key_Space) {
-                styl.stop();
-                event.accepted = true;
-            }
-            if (event.key === Qt.Key_S) {
-                styl.start();
-                event.accepted = true;
-            }
-            if (event.key === Qt.Key_Up) {
-                styl.increaseFatigue();
-                event.accepted = true;
-            }
-            if (event.key === Qt.Key_Down) {
-                styl.decreaseFatigue();  // Also fixed typo in method name (Faitgue -> Fatigue)
-                event.accepted = true;
-            }
-        }
-    }
 
 }
 

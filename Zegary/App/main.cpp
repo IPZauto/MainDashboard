@@ -116,9 +116,7 @@ int main(int argc, char *argv[])
     MessageWindow message;
 
     PlatformServer ps(&app, styl);
-    ps.connectToServer(Surl);
-
-    qDebug() << "i am here";
+    // ps.connectToServer(Surl);
 
     QObject::connect(&backend, &Game::TruckDamaged, &message, &MessageWindow::damagedTruck);
     QObject::connect(&backend, &Game::timeOfDayChanged, styl, &Style::updateTimeOfDay);
@@ -127,6 +125,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("styl", styl);
     engine.rootContext()->setContextProperty("network",&network);
     engine.rootContext()->setContextProperty("message", &message);
+    engine.rootContext()->setContextProperty("webSocket", &ps);
 
     const QUrl url(mainQmlFile);
     QObject::connect(
@@ -140,20 +139,20 @@ int main(int argc, char *argv[])
     engine.addImportPath(":/");
     engine.load(url);
 
-    backend.setBlinkerLeftActive(true);
-    backend.setBlinkerRightActive(true);
-    backend.setBatteryVoltageWarningOn(true);
-    backend.setFuelWarningOn(true);
-    backend.setCsOn(true);
-    backend.setCsSpeed(40);
-    backend.setSpeed(40);
-    backend.setRpm(2500);
-    backend.setGear(4);
-    backend.setLightsOn(true);
 
     if (engine.rootObjects().isEmpty())
         return -1;
 
+    // backend.setBatteryVoltageWarningOn(true);
+    backend.setSpeed(70);
+    // backend.setCsSpeed(120);
+    // backend.setCsOn(true);
+    backend.setGear(5);
+    backend.setRpm(2500);
+    backend.setBlinkerLeftActive(true);
+    backend.setLightsOn(true);
+    message.setAlert(1);
+    styl->increaseFatigue();
 
     return app.exec();
 }
