@@ -21,6 +21,8 @@ void PlatformServer::connectToServer(const QUrl url)
 
 void PlatformServer::connectToServerS()
 {
+    socket.close();
+    if (m_url.isEmpty()) return;
     QUrl url = QUrl(m_url);
     qDebug() << "Connecting to WebSocket server at:" << m_url;
     socket.open(url);
@@ -33,6 +35,7 @@ void PlatformServer::onConnected()
 
 void PlatformServer::onTextMessageReceived(QString message)
 {
+    if (m_url.isEmpty()) return;
     qDebug() << "Received message:" << message;
 
     QJsonParseError parseError;

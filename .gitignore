@@ -1,62 +1,71 @@
-# Created by https://www.toptal.com/developers/gitignore/api/qt
-# Edit at https://www.toptal.com/developers/gitignore?templates=qt
+# Build output and generated CMake/Qt files
+/build/
+**/build/
+**/build-*/
+**/cmake-build-*/
+/Zegary-Debug/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+compile_commands.json
+.qmlls.ini
+*.qmlc
+*.jsc
+*_autogen/
+.cmake/
+.qt/
+.qtc/
+.rcc/
+.qmlcache/
+build.ninja
+rules.ninja
+.ninja_deps
+.ninja_log
+install_manifest.txt
+CPackConfig.cmake
+CPackSourceConfig.cmake
+_CPack_Packages/
 
-### Qt ###
-# C++ objects and libs
-*.slo
-*.lo
+# Local SDK paths and editor state
+CMakeUserPresets.json
+*.user
+*.user.*
+*.shared
+*.qmlproject.qtds*
+*.autosave
+.cache/
+.clangd/
+.vs/
+.idea/
+*.swp
+*.swo
+*~
+
+# Compiled binaries
 *.o
+*.obj
 *.a
-*.la
-*.lai
+*.lib
 *.so
 *.so.*
 *.dll
 *.dylib
+*.exe
+*.pdb
+*.ilk
+*.exp
+*.pch
 
-# Qt-es
-object_script.*.Release
-object_script.*.Debug
-*_plugin_import.cpp
-/.qmake.cache
-/.qmake.stash
-*.pro.user
-*.pro.user.*
-*.qbs.user
-*.qbs.user.*
-*.moc
-moc_*.cpp
-moc_*.h
-qrc_*.cpp
-ui_*.h
-*.qmlc
-*.jsc
-Makefile*
-*build-*
-*.qm
-*.prl
+# Operating system files
+.DS_Store
+Thumbs.db
+.vscode
 
-# Qt unit tests
-target_wrapper.*
+# Deployment packages
+/dist/
 
-# QtCreator
-*.autosave
-
-# QtCreator Qml
-*.qmlproject.user
-*.qmlproject.user.*
-
-# QtCreator CMake
-CMakeLists.txt.user*
-
-# QtCreator 4.8< compilation database
-compile_commands.json
-
-# QtCreator local machine specific files for imported projects
-*creator.user*
-
-*_qmlcache.qrc
-
-# End of https://www.toptal.com/developers/gitignore/api/qt
-
-Zegary-Debug/*
+# Crash dumps
+core
+core.[0-9]*
+*.dmp

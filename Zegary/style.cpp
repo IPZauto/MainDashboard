@@ -63,7 +63,7 @@ void Style::setColor(const QColor color){
 }
 // sets text color
 void Style::setTextColor(const QColor color){
-    if (m_color==color) return;
+    if (m_textColor==color) return;
     m_textColor=color;
     emit textColorChanged();
 }
@@ -124,7 +124,7 @@ void Style::setFatigue(const int fatigue){
     if ( fatigue == rapid || fatigue <= sleepy && fatigue >= fresh)
     {
         m_fatigue = fatigue;
-        if ((fatigue == rapid||fatigue > fresh) && !m_pulse) setPulseActive(true);
+        setPulseActive(fatigue != fresh);
         emit fatigueChanged();
     }
     return;

@@ -9,10 +9,13 @@
 #include <QDir>
 #include <QStandardPaths>
 
-#include "autogen/environment.h"
+#include <QtQml/QQmlExtensionPlugin>
+
+Q_IMPORT_QML_PLUGIN(ZegaryContentPlugin)
 #include "game.h"
 #include "networkdata.h"
 #include "style.h"
+#include "researchsettings.h"
 #include "messagewindow.h"
 #include "platformserver.h"
 
@@ -20,103 +23,36 @@ const QString dConfigPath = ":/config/config.json";
 
 int main(int argc, char *argv[])
 {
-    set_qt_environment();
+    qputenv("QML_COMPAT_RESOLVE_URLS_ON_ASSIGNMENT", "1");
+    qputenv("QT_AUTO_SCREEN_SCALE_FACTOR", "1");
+    qputenv("QT_ENABLE_HIGHDPI_SCALING", "0");
+    qputenv("QT_LOGGING_RULES", "qt.qml.connections=false");
+    qputenv("QT_QUICK_CONTROLS_CONF", ":/qtquickcontrols2.conf");
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    QString execPath = QCoreApplication::applicationDirPath();
-    QString configFolder = execPath + "/config";
-    QString destPath = configFolder + "config.json";
-    QString configFilePath = destPath;
-    // config file logic
-    if(!QFile(destPath).exists()){
-        configFilePath = dConfigPath;
-        QDir dir;
-        if (!dir.exists(configFolder)) {
-            dir.mkpath(configFolder);
+    const QString configFolder = QCoreApplication::applicationDirPath() + "/config";
+    const QString configPath = QDir(configFolder).filePath("config.json");
+    if (!QFile::exists(configPath)) {
+        if (!QDir().mkpath(configFolder) || !QFile::copy(dConfigPath, configPath)) {
+            qCritical() << "Cannot create config:" << configPath;
+            return 1;
         }
-        if (QFile::copy(dConfigPath, destPath)) {
-            qDebug() << "Copied config.json to:" << destPath;
-        } else {
-            qWarning() << "Failed to copy config.json!";
-        }
+        QFile::setPermissions(configPath, QFile::permissions(configPath) | QFileDevice::WriteOwner);
     }
-    // Reading
-    bool config = false;
-    int timers = 0;
-    QVector<int> durations;
-    QVector<QColor> bcolors;
-    QVector<QColor> tcolors;
-    QVector<QColor> bcolorsE;
-    QVector<QColor> tcolorsE;
-    QVector<QColor> bcolorsN;
-    QVector<QColor> tcolorsN;
-    QColor rapidBColors;
-    QColor rapidTCOlors;
-    QVector<int> fatigue;
-    QFile configFile(configFilePath);
-    if (configFile.open(QIODevice::ReadOnly)) {
-        QByteArray data = configFile.readAll();
-        QJsonDocument doc = QJsonDocument::fromJson(data);
-        if(!doc.isNull()){
-            QJsonObject rootObject = doc.object();
-            QJsonObject setup = rootObject["setup"].toObject();
-            config = setup["config"].toBool();
-            timers = setup["timers"].toInt();
-            QJsonArray jDurations = setup["durations"].toArray();
-            for (const QJsonValue& value : jDurations){
-                durations.push_back(value.toInt());
-            }
-            if(durations.length()!=timers) {
-                qDebug() << "wrong config file";
-                return -1;
-            }
-            QJsonArray jbColors = setup["bcolors"].toArray();
-            for (const QJsonValue& value : jbColors){
-                bcolors.push_back(QColor(value.toString()));
-            }
-            if(bcolors.length()!=3) {
-                qDebug() << "wrong config file";
-                return -1;
-            }
-            QJsonArray jtColors = setup["tcolors"].toArray();
-            for (const QJsonValue& value : jtColors){
-                tcolors.push_back(QColor(value.toString()));
-            }
-            if(tcolors.length()!=3) {
-                qDebug() << "wrong config file";
-                return -1;
-            }
-            rapidBColors = QColor(setup["rbcolors"].toString());
-            rapidTCOlors = QColor(setup["rtcolors"].toString());
-            QJsonArray jfatigue = setup["fatigue"].toArray();
-            for (const QJsonValue& value : jfatigue){
-                fatigue.push_back(value.toInt());
-            }
-            if(fatigue.length()!=timers) {
-                qDebug() << "wrong config file";
-                return -1;
-            }
-        }
-        configFile.close();
-    }
-
     Game backend;
-
-    NetworkData network(&app,TELEMETREY_URL,&backend);
-
-    Style* styl;
-    //to do  change config file
-    // if(config){
-    //     styl = new Style(&app,config, b_default, t_default, bcolors, tcolors, rapidBColors, rapidTCOlors, durations, fatigue, timers);
-    // }else{
-    //     styl = new Style(&app);
-    // }
-    styl = new Style(&app);
+    NetworkData network(&app, TELEMETREY_URL, &backend);
+    Style *styl = new Style(&app);
+    ResearchSettings research(styl, configPath);
     MessageWindow message;
 
     PlatformServer ps(&app, styl);
-    // ps.connectToServer(Surl);
+    QObject::connect(&research, &ResearchSettings::websocketUrlChanged, &ps, &PlatformServer::setUrl);
+    if (!research.load()) {
+        qCritical() << "Config error in" << configPath << research.error();
+        return 1;
+    }
+    engine.rootContext()->setContextProperty("research", &research);
 
     QObject::connect(&backend, &Game::TruckDamaged, &message, &MessageWindow::damagedTruck);
     QObject::connect(&backend, &Game::timeOfDayChanged, styl, &Style::updateTimeOfDay);
@@ -127,7 +63,7 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("message", &message);
     engine.rootContext()->setContextProperty("webSocket", &ps);
 
-    const QUrl url(mainQmlFile);
+    const QUrl url(QStringLiteral("qrc:/qt/qml/ZegaryContent/App.qml"));
     QObject::connect(
                 &engine, &QQmlApplicationEngine::objectCreated, &app,
                 [url](QObject *obj, const QUrl &objUrl) {
@@ -152,7 +88,7 @@ int main(int argc, char *argv[])
     backend.setBlinkerLeftActive(true);
     backend.setLightsOn(true);
     message.setAlert(1);
-    styl->increaseFatigue();
+
 
     return app.exec();
 }

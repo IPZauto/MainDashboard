@@ -1,0 +1,36 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "local-debug",
+            "inherits": "debug",
+            "cacheVariables": {
+                "CMAKE_PREFIX_PATH": "$env{QT_ROOT_DIR}"
+            }
+        },
+        {
+            "name": "local-release",
+            "inherits": "release",
+            "cacheVariables": {
+                "CMAKE_PREFIX_PATH": "$env{QT_ROOT_DIR}"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "local-debug",
+            "configurePreset": "local-debug"
+        },
+        {
+            "name": "local-release",
+            "configurePreset": "local-release"
+        },
+        {
+            "name": "local-lint",
+            "configurePreset": "local-debug",
+            "targets": [
+                "all_qmllint"
+            ]
+        }
+    ]
+}

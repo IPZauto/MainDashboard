@@ -1,32 +1,28 @@
 {
-    "setup": {
-        "config": false,
-        "timers": 5,
-        "durations": [
-            10,
-            10,
-            10,
-            10,
-            10
-        ],
-        "bcolors": [
-            "#FF0000",
-            "#0000FF",
-            "#800080"
-        ],
-        "tcolors": [
-            "#00FF00",
-            "#FFA500",
-            "#FFFF00"
-        ],
-        "rbcolors": "#008080",
-        "rtcolors": "#FF4500",
-        "fatigue": [
-            0,
-            1,
-            2,
-            -1,
-            3
-        ]
-    }
+    "debug": true,
+    "release": false,
+    "websocketUrl": "",
+    "mode": "manual",
+    "background": "#151414",
+    "foreground": "#123456",
+    "baseBackground": "#151414",
+    "baseForeground": "#E8E8E8",
+    "flash": "steady",
+    "fadeInMs": 1500,
+    "holdMs": 500,
+    "fadeOutMs": 1500,
+    "pauseMs": 2000,
+    "demoLoop": true,
+    "demoSteps": [
+        {
+            "background": "#FFFFFF",
+            "foreground": "#0000FF",
+            "durationMs": 10000
+        },
+        {
+            "background": "#FFFF00",
+            "foreground": "#000000",
+            "durationMs": 10000
+        }
+    ]
 }

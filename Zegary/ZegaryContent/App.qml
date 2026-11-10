@@ -2,8 +2,7 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 
 import QtQuick
-import QtQuick.Controls
-import Zegary
+import QtQuick.Controls.Basic
 
 Window {
     id: mainWindow
@@ -44,6 +43,7 @@ Window {
             }
             TextField {
                 id: webSocketUrlInput
+                text: research.settings.websocketUrl
                 width: parent.width-20
                 placeholderText: "e.g., ws://127.0.0.1:8080"
             }
@@ -53,7 +53,7 @@ Window {
             serverUrl=serverUrlInput.text;
             network.url = serverUrl;
             webSocketUrl = webSocketUrlInput.text;
-            webSocket.url = webSocketUrl;
+            if (!research.setWebsocketUrl(webSocketUrl)) return;
             mainWindow.visibility = Window.FullScreen
             mainWindow.flags = Qt.Window | Qt.FramelessWindowHint // Remove frame
         }
@@ -65,10 +65,6 @@ Window {
 
     Component.onCompleted:{
         serverIdPopUp.open();
-    }
-
-    PulsatingBox{
-        anchors.fill: parent
     }
 
     ZegarLeft {
@@ -84,6 +80,42 @@ Window {
         y: 0
     }
 
-
+    ToolButton {
+        id: settingsButton
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 12
+        text: qsTr("Settings")
+        Accessible.name: qsTr("Research settings")
+        visible: research.debug
+        enabled: research.debug
+        contentItem: Text {
+            text: settingsButton.text
+            color: "#d0d0d0"
+            font: settingsButton.font
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+        background: Rectangle {
+            color: settingsButton.hovered || settingsButton.activeFocus ? "#353535" : "#222222"
+            border.color: settingsButton.activeFocus ? "#d0d0d0" : "#555555"
+            radius: 4
+        }
+        ToolTip.visible: hovered
+        ToolTip.text: qsTr("Research settings (Ctrl+,)")
+        onClicked: settingsLoader.active = true
+    }
+    Shortcut {
+        sequence: "Ctrl+,"
+        enabled: research.debug
+        onActivated: settingsLoader.active = true
+    }
+    Loader {
+        id: settingsLoader
+        active: false
+        sourceComponent: ResearchSettingsDialog {
+            onClosed: settingsLoader.active = false
+            Component.onCompleted: open()
+        }
+    }
 }
-
